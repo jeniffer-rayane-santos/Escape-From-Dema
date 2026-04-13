@@ -1,7 +1,5 @@
 # Escape-From-Dema
 
-Escape From Dema
-
 Escape From Dema é um minigame narrativo inspirado no universo conceitual da banda Twenty One Pilots. O projeto combina elementos de RPG e Quiz interativo para criar uma experiência de tomada de decisão onde cada escolha molda o destino do protagonista.
 
 Sobre o Projeto
