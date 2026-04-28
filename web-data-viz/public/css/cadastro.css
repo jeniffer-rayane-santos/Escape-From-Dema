@@ -7,13 +7,6 @@ body {
     background-repeat: no-repeat;
 }
 
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
 button {
     border: none;
     background: none;
@@ -21,6 +14,11 @@ button {
     cursor: pointer;
     font-size: 50px;
     font-family: inherit;
+}
+
+.campo button{
+    font-size: 35px;
+    padding-top: 100px;
 }
 
 .navbar {
@@ -55,6 +53,7 @@ h1 {
 h2 {
     font-family: inherit;
     color: black;
+    font-size: 35px;
 }
 
 .container {
@@ -80,10 +79,6 @@ input {
     font-size: 25px;
 }
 
-.campo button{
-    padding: 5px;
-}
-
 .campo {
     display: flex;
     flex-direction: column;
@@ -91,60 +86,18 @@ input {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 30%;
+    width: 35%;
+    height: 95vh;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.611);
     border-radius: 10px;
     background-image: url(/public/assets/contrato.png);
 }
 
 .campo h1 {
-    font-size: 20px;
-    text-align: center;
-    margin-top: 60px;
-    margin-bottom: 20px;
-}
-
-.campo label {
-    font-size: 20px;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 5px;
-}
-
-.assinatura {
-    font-family: "Homemade Apple", cursive;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 30px;
-    color: rgb(13, 13, 82);
-}
-
-.welcome{
-    display: flex;
-    justify-content: space-around;
-    text-align: justify;
-    width: 80%;
-    height: fit-content;
-    font-size: 23px;
-    color: black;
-    background-color: grey;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 25px 50px;
-    border-radius: 10px;
-}
-
-.introducao{
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-    width: 50%;
-}
-
-.introducao p{
     font-size: 35px;
-
+    text-align: center;
+    margin-top: 220px;
+    padding-bottom: 50px;
 }
 
 .footer {

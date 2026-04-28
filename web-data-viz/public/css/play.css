@@ -23,6 +23,14 @@ button {
     font-family: inherit;
 }
 
+.botaoPlay {
+   align-items: center;
+    width: 100px;
+    height: 10px;
+    color: blue;
+    background-color: blueviolet;
+}
+
 .navbar {
     display: flex;
     justify-content: space-around;
@@ -158,3 +166,4 @@ input {
     font-size: 25px;
   
 }
+
