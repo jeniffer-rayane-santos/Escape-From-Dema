@@ -55,17 +55,19 @@
       </div>
     </div>
   </div>
-   <div class="footer">
-        ESCAPE FROM DEMA 2026 © 
-    </div>
+  <div class="footer">
+    ESCAPE FROM DEMA 2026 ©
+  </div>
 </body>
 
 </html>
 
 <script>
+
   let cadastrados = [];
 
   function cadastrar() {
+
     let codigo = ipt_codigo.value;
     let email = ipt_email.value;
     let senha = ipt_senha.value;
@@ -74,58 +76,48 @@
     let idCadastroVincular;
 
     if (codigo == "" || email == "" || senha == "" || confirmacaoSenha == "" || nome == "") {
-      alert('Todos os campos devem sejam preenchidos!');
+      alert('Todos os campos devem sejam preenchidos!')
     } else {
       if (senha != confirmacaoSenha) {
-        alert('As chaves de acesso não coincidem.');
+        alert('As chaves de acesso não coincidem.')
+      }
+      if (!codigo.includes('FPE')) {
+        alert('O código não é válido.')
       } else {
-        let codigoValido = false;
+        fetch("/usuarios/cadastrar", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
 
-        for (let i = 0; i < cadastrados.length; i++) {
-          if (cadastrados[i].codigo_ativacao == codigo) {
-            idCadastrioVincular = cadastrados[i].id;
-            codigoValido = true;
-          }
-        }
+          body: JSON.stringify({
+            codigoServer: codigo,
+            nomeServer: nome,
+            emailServer: email,
+            senhaServer: senha,
+          }),
 
-        if (codigoValido == false) {
-          alert("Código FPE inválido. O Sistema Integrado não reconhece esta credencial.");
-        } else {
-          fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
+        })
 
-            body: JSON.stringify({
-              nomeServer: nome,
-              emailServer: email,
-              senhaServer: senha,
-              idCadastroVincularServer: idCadastroVincular
-            }),
+          .then(function (resposta) {
+            console.log("resposta: ", resposta);
 
+            if (resposta.ok) {
+              alert("Cadastro realizado com sucesso!. Redirecionando para tela de Login...");
+
+              setTimeout(() => {
+                window.location = "login.html";
+              }, 2000);
+
+            } else {
+              throw "Houve um erro ao tentar realizar o cadastro!";
+            }
           })
 
-            .then(function (resposta) {
-              console.log("resposta: ", resposta);
+          .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+          });
 
-              if (resposta.ok) {
-                alert("Cadastro realizado com sucesso!. Redirecionando para tela de Login...");
-
-                setTimeout(() => {
-                  window.location = "login.html";
-                }, 2000);
-
-              } else {
-                throw "Houve um erro ao tentar realizar o cadastro!";
-              }
-            })
-
-            .catch(function (resposta) {
-              console.log(`#ERRO: ${resposta}`);
-            });
-
-        }
       }
     }
   }
