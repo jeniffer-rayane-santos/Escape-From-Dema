@@ -4,31 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESCAPE FROM DEMA</title>
+    <title>Escape from Dema</title>
     <link rel="stylesheet" href="/public/css/play.css">
     <link href="https://cdnfonts.com" rel="stylesheet">
-
 </head>
 
-<body class="index">
+<body>
 
-    <div class="navbar">
-        <a><button onclick="window.location.href='cadastro.html'">Cadastre-se</button></a>
-        <a><button onclick="window.location.href='login.html'">Entre</button></a>
+    <img id="imagemFundo" src="/public/assets/background.png">
+
+    <div id="interface">
+        <div id="telaTitulo">
+            <span class="logo"> <img src="assets/logo.png" alt=""></span>
+            <button class="btn-centro" onclick="cenaIntro1()">PLAY</button>
+        </div>
+
+        <div id="telaJogo" hidden>
+            <div id="nome"></div>
+            <div id="texto"></div>
+            <div id="botoes"></div>
+        </div>
     </div>
-
-    <span class="logo"> <img src="assets/logo.png" alt=""></span>
-
-    <a class="botaoPlay">
-        <button onclick="comecar()">PLAY</button>
-    </a>
 
     <div class="footer">
         ESCAPE FROM DEMA 2026 ©
     </div>
 
-
-
 </body>
 
 </html>
+
+<script>
+    function cenaIntro1() {
+        telaTitulo.hidden = true
+        telaJogo.hidden = false
+        imagemFundo.src = 'public/assets/quarto.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Lá fora, o brilho artificial da cidade está mais forte do que nunca. Hoje é a Assembleia Anual dos Glorificados, a grande cerimônia onde os cidadãos de Dema se entregam ao Vialismo. Mas você não estava pronto. Na verdade, você se recusou a se entregar.'
+        botoes.innerHTML = '<button onclick="cenaIntro2()">Continuar</button>'
+    }
+
+    function cenaIntro2() {
+        imagemFundo.src = 'public/assets/quarto.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Os Nove Bispos perceberam isso. Eles viram a sua força de vontade, viram que a faísca na sua mente ainda não tinha se apagado. E por isso, você virou um alvo. Para tentar quebrar a sua resistência, eles te trancaram em uma solitária úmida e escura. O objetivo deles é simples: deixar você ali isolado até que a sua mente se deprecie, até que o desespero te consuma e você fique completamente suscetível à autodestruição que eles tanto pregam.'
+        botoes.innerHTML = '<button onclick="cenaIntro3()">Continuar</button>'
+    }
+
+    function cenaIntro3() {
+        imagemFundo.src = ''
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Você está encolhido no canto da cela fria, vestindo o seu casaco pesado e sem cor, tentando ignorar os cânticos abafados da Assembleia que ecoam à distância.'
+        botoes.innerHTML = '<button onclick="cenaIntro4()">Continuar</button>'
+    }
+
+    function cenaIntro4() {
+        imagemFundo.src = ''
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Você continua no canto, o frio parece penetrar a sua pele, e o tempo se arrasta lentamente enquanto a cerimônia prossegue lá fora.'
+        botoes.innerHTML = '<button onclick="cenaIntro5()">Continuar</button>'
+    }
+
+    function cenaIntro5() {
+        imagemFundo.src = ''
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'De repente, você sente um leve incômodo por dentro do tecido do seu casaco. Algo está se mexendo, roçando perto do seu peito a cada respiração sua.'
+        botoes.innerHTML = '<button onclick="cenaIntro6()">Continuar</button>'
+    }
+
+    function cenaIntro6() {
+        imagemFundo.src = ''
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Você abre um pouco o casaco e toma um susto: no meio da escuridão daquela cela, um contraste absurdo que grita. Fitas amarelas e vibrantes prendem um pedaço de papel desgastado ao forro da sua roupa. Alguém conseguiu se infiltrar, passar pelos guardas e colar isso em você sem que percebessem.'
+        botoes.innerHTML = '<button onclick="cenaIntro7()">Continuar</button>'
+    }
+
+    function cenaIntro7() {
+        imagemFundo.src = ''
+        nome.innerHTML = ''
+        texto.innerHTML = ''
+        botoes.innerHTML = '<button onclick="cenaIntro8()">Continuar</button>'
+    }
+
+    function cenaIntro8() {
+        imagemFundo.src = ''
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Você arranca a fita com cuidado, desdobra o papel e lê. As palavras do Torchbearer invadem a sua mente. A ilusão se desfaz de vez e, pela primeira vez em muito tempo, você sente um propósito real. Você precisa fugir.'
+        botoes.innerHTML = '<button onclick="cenaIntro9()">Continuar</button>'
+    }
+
+    function cenaIntro9() {
+        imagemFundo.src = ''
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Mas antes que possa absorver a gravidade da situação, o silêncio do corredor é quebrado. Você ouve o som inconfundível de botas pesadas marchando em sincronia. Estão vindo em direção à sua cela. Faltam poucos segundos para abrirem a tranca e te verem ali, desperto e com a prova da rebelião nas mãos.'
+        botoes.innerHTML = '<button onclick="cenaEscolhaGuarda()">Continuar</button>'
+    }
+
+</script>
