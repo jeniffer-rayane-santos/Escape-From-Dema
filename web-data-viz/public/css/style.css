@@ -1,10 +1,11 @@
 body {
     font-family: 'BankGothic Md BT', sans-serif;
     margin: 0;
-    background-image: url(/public/assets/background.png);
+    background-image: url(../assets/background.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    opacity: 80%;
 }
 
 .logo {
@@ -27,7 +28,7 @@ button {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-image: url(/public/assets/navbar.png);
+    background-image: url(../assets/navbar.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -39,10 +40,10 @@ button {
     transition: 0.5s;
 }
 
-.navbar a:hover{
+.navbar a:hover {
     border: 1px solid black;
     border-radius: 10px;
-    box-shadow: 13px 12px 12px -3px rgba(0,0,0,0.3);
+    box-shadow: 13px 12px 12px -3px rgba(0, 0, 0, 0.3);
     scale: 1.1;
 }
 
@@ -80,7 +81,7 @@ input {
     font-size: 25px;
 }
 
-.campo button{
+.campo button {
     padding: 5px;
 }
 
@@ -94,7 +95,7 @@ input {
     width: 30%;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.611);
     border-radius: 10px;
-    background-image: url(/public/assets/contrato.png);
+    background-image: url(../assets/contrato.png);
 }
 
 .campo h1 {
@@ -119,7 +120,7 @@ input {
     color: rgb(13, 13, 82);
 }
 
-.welcome{
+.welcome {
     display: flex;
     justify-content: space-around;
     text-align: justify;
@@ -135,26 +136,30 @@ input {
     border-radius: 10px;
 }
 
-.introducao{
+.introducao {
     display: flex;
     flex-direction: column;
     font-size: 20px;
     width: 50%;
 }
 
-.introducao p{
+.introducao p {
     font-size: 35px;
 
 }
 
 .footer {
-    display: flex;
-    justify-content: center;
-    background-color: rgb(162, 163, 164);
-    width: 100%;
-    height: 10vh;
-    padding-top:100px;
-    border-top: 10px double;
-    font-size: 25px;
-  
-}
+     display: flex;
+     justify-content: center;
+     background-color: white;
+     width: 100%;
+     height: 10vh;
+     padding-top: 30px;
+     border-top: 10px double;
+     font-size: 22px;
+     color: #000000cd;
+     background-image: url(../assets/navbar.png);
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+ }

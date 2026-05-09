@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escape from Dema</title>
-    <link rel="stylesheet" href="/public/css/play.css">
+    <link rel="stylesheet" href="../css/play.css">
     <link href="https://cdnfonts.com" rel="stylesheet">
 </head>
 
 <body>
 
-    <img id="imagemFundo" src="/public/assets/background.png">
+    <img id="imagemFundo" src="../assets/background.png">
 
     <div id="interface">
         <div id="telaTitulo">
-            <span class="logo"> <img src="assets/logo.png" alt=""></span>
+            <span class="logo"> <img src="../assets/logo.png" alt=""></span>
             <button class="btn-centro" onclick="cenaIntro1()">PLAY</button>
         </div>
 
@@ -26,10 +26,6 @@
         </div>
     </div>
 
-    <div class="footer">
-        ESCAPE FROM DEMA 2026 ©
-    </div>
-
 </body>
 
 </html>
@@ -38,66 +34,220 @@
     function cenaIntro1() {
         telaTitulo.hidden = true
         telaJogo.hidden = false
-        imagemFundo.src = 'public/assets/quarto.png'
+        imagemFundo.src = '../assets/Quarto.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Lá fora, o brilho artificial da cidade está mais forte do que nunca. Hoje é a Assembleia Anual dos Glorificados, a grande cerimônia onde os cidadãos de Dema se entregam ao Vialismo. Mas você não estava pronto. Na verdade, você se recusou a se entregar.'
         botoes.innerHTML = '<button onclick="cenaIntro2()">Continuar</button>'
     }
 
     function cenaIntro2() {
-        imagemFundo.src = 'public/assets/quarto.png'
+        imagemFundo.src = '../assets/Quarto.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Os Nove Bispos perceberam isso. Eles viram a sua força de vontade, viram que a faísca na sua mente ainda não tinha se apagado. E por isso, você virou um alvo. Para tentar quebrar a sua resistência, eles te trancaram em uma solitária úmida e escura. O objetivo deles é simples: deixar você ali isolado até que a sua mente se deprecie, até que o desespero te consuma e você fique completamente suscetível à autodestruição que eles tanto pregam.'
         botoes.innerHTML = '<button onclick="cenaIntro3()">Continuar</button>'
     }
 
     function cenaIntro3() {
-        imagemFundo.src = ''
+        imagemFundo.src = '../assets/Quarto.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você está encolhido no canto da cela fria, vestindo o seu casaco pesado e sem cor, tentando ignorar os cânticos abafados da Assembleia que ecoam à distância.'
         botoes.innerHTML = '<button onclick="cenaIntro4()">Continuar</button>'
     }
 
     function cenaIntro4() {
-        imagemFundo.src = ''
+        imagemFundo.src = '../assets/Quarto.png'
         nome.innerHTML = 'NARRADOR'
-        texto.innerHTML = 'Você continua no canto, o frio parece penetrar a sua pele, e o tempo se arrasta lentamente enquanto a cerimônia prossegue lá fora.'
+        texto.innerHTML = 'De repente, você sente um leve incômodo por dentro do tecido do seu casaco. Algo está se mexendo, roçando perto do seu peito a cada respiração sua.'
         botoes.innerHTML = '<button onclick="cenaIntro5()">Continuar</button>'
     }
 
     function cenaIntro5() {
-        imagemFundo.src = ''
-        nome.innerHTML = 'NARRADOR'
-        texto.innerHTML = 'De repente, você sente um leve incômodo por dentro do tecido do seu casaco. Algo está se mexendo, roçando perto do seu peito a cada respiração sua.'
-        botoes.innerHTML = '<button onclick="cenaIntro6()">Continuar</button>'
+        imagemFundo.src = '../assets/carta.png'
+        document.getElementById("nome").style.display = "none"
+        document.getElementById("texto").style.display = "none"
+        document.getElementById("botoes").style.width = "208px"
+        document.getElementById("botoes").innerHTML = '<button onclick="cenaIntro6()">Continuar</button>'
     }
 
     function cenaIntro6() {
-        imagemFundo.src = ''
+        imagemFundo.src = '../assets/Quarto.png'
+        document.getElementById("nome").style.display = "block"
+        document.getElementById("texto").style.display = "block"
+        document.getElementById("botoes").style.width = "1408px"
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você abre um pouco o casaco e toma um susto: no meio da escuridão daquela cela, um contraste absurdo que grita. Fitas amarelas e vibrantes prendem um pedaço de papel desgastado ao forro da sua roupa. Alguém conseguiu se infiltrar, passar pelos guardas e colar isso em você sem que percebessem.'
         botoes.innerHTML = '<button onclick="cenaIntro7()">Continuar</button>'
     }
 
     function cenaIntro7() {
-        imagemFundo.src = ''
-        nome.innerHTML = ''
-        texto.innerHTML = ''
+        imagemFundo.src = '../assets/Quarto.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Você arranca a fita com cuidado, desdobra o papel e lê. As palavras do Torchbearer invadem a sua mente. A ilusão se desfaz de vez e, pela primeira vez em muito tempo, você sente um propósito real. Você precisa fugir.'
         botoes.innerHTML = '<button onclick="cenaIntro8()">Continuar</button>'
     }
 
     function cenaIntro8() {
-        imagemFundo.src = ''
-        nome.innerHTML = 'NARRADOR'
-        texto.innerHTML = 'Você arranca a fita com cuidado, desdobra o papel e lê. As palavras do Torchbearer invadem a sua mente. A ilusão se desfaz de vez e, pela primeira vez em muito tempo, você sente um propósito real. Você precisa fugir.'
-        botoes.innerHTML = '<button onclick="cenaIntro9()">Continuar</button>'
-    }
-
-    function cenaIntro9() {
-        imagemFundo.src = ''
+        imagemFundo.src = '../assets/Quarto.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Mas antes que possa absorver a gravidade da situação, o silêncio do corredor é quebrado. Você ouve o som inconfundível de botas pesadas marchando em sincronia. Estão vindo em direção à sua cela. Faltam poucos segundos para abrirem a tranca e te verem ali, desperto e com a prova da rebelião nas mãos.'
-        botoes.innerHTML = '<button onclick="cenaEscolhaGuarda()">Continuar</button>'
+        botoes.innerHTML = '<button onclick="guardaA()">A) Esconder a carta </button>' +
+            '<button onclick="guardaB()">B) Se impor </button>' +
+            '<button onclick="guardaC()">C) Destruir a carta</button>'
     }
+
+
+    function guardaA() {
+        imagemFundo.src = '../assets/guarda.png'
+        nome.innerHTML = 'GUARDA'
+        texto.innerHTML = '"O sacrifício é a única rota para você sair daqui, continue assim..." Ele dá um sorriso de desprezo e tranca a porta novamente.'
+        botoes.innerHTML = '<button onclick="cenaChave()">Continuar</button>'
+    }
+
+    function guardaB() {
+        imagemFundo.src = '../assets/guarda.png'
+        nome.innerHTML = 'GUARDA'
+        texto.innerHTML = '"Quem você pensa que é? Para de dar trabalho, seu idiota!" Ele te empurra com força contra a parede, realiza uma revista e sai, trancando a porta.'
+        botoes.innerHTML = '<button onclick="cenaChave()">Continuar</button>'
+    }
+
+    function guardaC() {
+        imagemFundo.src = '../assets/Quarto.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'A luz da lanterna passa pela fresta. O guarda te vê sentado, de mãos vazias e em silêncio. Satisfeito, ele continua a patrulha pelo corredor.'
+        botoes.innerHTML = '<button onclick="cenaTijolo()">Continuar</button>'
+    }
+
+    function cenaTijolo() {
+        imagemFundo.src = '../assets/tijolo.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'O silêncio volta. Perto do ralo, você acha um tijolo solto com marcação amarela.'
+        botoes.innerHTML = '<button onclick="cenaChave()">Continuar</button>'
+    }
+
+    function cenaChave() {
+        imagemFundo.src = '../assets/itens.png'
+        nome.innerHTML = 'VOCÊ'
+        texto.innerHTML = '"- Uma bússola e uma cópia da chave mestra dos guardas!"'
+        botoes.innerHTML = '<button onclick="cenaChave2()">Continuar</button>'
+    }
+
+    function cenaChave2() {
+        imagemFundo.src = '../assets/porta.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Você destranca a porta e sai.'
+        botoes.innerHTML = '<button onclick="cenaTorre()">Continuar</button>'
+    }
+
+    function cenaTorre() {
+        imagemFundo.src = '../assets/torre.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Você está no alto de uma torre prisional vertiginosa. O abismo central é iluminado por luzes amareladas. De repente, passos metálicos ecoam subindo as escadas.'
+        botoes.innerHTML = '<button onclick="torreA()">A) Se esconder e esperar o guarda passar</button>' +
+            '<button onclick="torreB()">B) Descer correndo as escadas pelo outro lado</button>' +
+            '<button onclick="torreC()">C) Armar uma emboscada para o guarda</button>'
+    }
+
+    function torreA() {
+        imagemFundo.src = '../assets/escadas.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Você se joga nas sombras. A lanterna dele passa a centímetros do seu pé. Você perde um tempo precioso, mas consegue descer a torre sem ser visto.'
+        botoes.innerHTML = '<button onclick="cenaPatio()">Continuar</button>'
+    }
+
+    function torreB() {
+        imagemFundo.src = '../assets/escadas.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Seus pés batem no metal. O barulho alerta o guarda, mas você é mais rápido. Você some no térreo, deixando o bloco em estado de alerta.'
+        botoes.innerHTML = '<button onclick="cenaPatio()">Continuar</button>'
+    }
+
+    function torreC() {
+        imagemFundo.src = '../assets/escadas.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Você empurra o guarda pelas escadas. Ele cai atordoado. O barulho foi alto, mas você ganha a janela de tempo perfeita para fugir até o térreo.'
+        botoes.innerHTML = '<button onclick="cenaPatio()">Continuar</button>'
+    }
+
+    function cenaPatio() {
+        imagemFundo.src = '../assets/patio.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Você empurra a última porta e sai no Pátio dos Falsos Ídolos. No centro, uma estátua bizarra iluminada por neons brancos. Sua bússola aponta para uma árvore ao Leste, do outro lado.'
+        botoes.innerHTML = '<button onclick="patioA()">A) Contornar rastejando pelas sombras</button>' +
+            '<button onclick="patioB()">B) Avançar usando a estátua como escudo</button>' +
+            '<button onclick="patioC()">C) Quebrar o neon sagrado com uma pedra</button>'
+    }
+
+    function patioA() {
+        imagemFundo.src = '../assets/patio.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'O medo consome seu tempo. Você dá a volta pelas beiradas escuras. Ao chegar na árvore, nota as sirenes da sua torre ligando. Sua fuga foi descoberta.'
+        botoes.innerHTML = '<button onclick="cenaTrincheira()">Continuar</button>'
+    }
+
+    function patioB() {
+        imagemFundo.src = '../assets/patio.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Frio e calculista. Você corre até o ponto cego da estátua e espera a patrulha virar as costas. Em um movimento perfeito, você alcança a árvore no Leste.'
+        botoes.innerHTML = '<button onclick="cenaTrincheira()">Continuar</button>'
+    }
+
+    function patioC() {
+        imagemFundo.src = '../assets/patio.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'CRASH! A pedra estilhaça o neon. O pátio mergulha em escuridão e confusão. Guiado pela bússola no breu absoluto, você corre livre até a árvore.'
+        botoes.innerHTML = '<button onclick="cenaTrincheira()">Continuar</button>'
+    }
+
+    function cenaTrincheira() {
+        imagemFundo.src = '../assets/trincheira.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Atrás da árvore, um prédio em ruínas esconde um túnel de terra: a Trincheira. Lá embaixo, os Banditos aguardam. A rebelião começou.'
+        botoes.innerHTML = '<button onclick="cenaEstreito()">Continuar</button>'
+    }
+
+    function cenaTrincheira() {
+        imagemFundo.src = '../assets/escada2.png'
+        nome.innerHTML = 'NARRADOR'
+        texto.innerHTML = 'Atrás da árvore, um prédio em ruínas esconde um túnel de terra: a Trincheira. Lá embaixo, os Banditos aguardam. A rebelião começou.'
+        botoes.innerHTML = '<button onclick="cenaEstreito()">Continuar</button>'
+    }
+
+    function cenaEstreito() {
+        imagemFundo.src = '../assets/torchbearer.png'
+        nome.innerHTML = 'TORCHBEARER'
+        texto.innerHTML = '"Chegamos à margem do Estreito de Paladin," diz o Torchbearer sob a névoa. "Do outro lado está a muralha e a torre de Nico. Você deve decidir como faremos a travessia."'
+        botoes.innerHTML = '<button onclick="fimBispo()">A) Canalizar o artefato dos Bispos</button>' +
+            '<button onclick="fimFuga()">B) Liderar barcos furtivos sob a névoa</button>' +
+            '<button onclick="fimEnfrentamento()">C) Marchar na água com a tocha erguida</button>'
+    }
+
+    function fimEnfrentamento() {
+        imagemFundo.src = ''
+        nome.innerHTML = 'FIM DA HISTÓRIA'
+        texto.innerHTML = '<h2 style="color: #facc15 margin-bottom: 15px">O Fogo de Trench</h2>Você caminha nas águas gélidas em direção a Nico. Ele tenta invadir sua mente, mas você atira sua tocha contra o manto vermelho. Você prova que os Bispos sangram. Você se tornou o general de Trench e a guerra em Dema acaba de começar.'
+        botoes.innerHTML = '<button onclick="reiniciarJogo()">Jogar Novamente</button>'
+    }
+
+    function fimFuga() {
+        imagemFundo.src = 'https://images.unsplash.com/photo-1485081669829-bacb8c7bb1f3?w=1600&q=80'
+        nome.innerHTML = 'FIM DA HISTÓRIA'
+        texto.innerHTML = '<h2 style="color: #94a3b8 margin-bottom: 15px">A Cidade Fantasma</h2>Com uma infiltração furtiva, vocês abrem os portões silenciosamente. A população inteira foge pelas águas antes que os Nove percebam. Você deixa Dema para trás como um mausoléu vazio, caminhando rumo à liberdade.'
+        botoes.innerHTML = '<button onclick="reiniciarJogo()">Jogar Novamente</button>'
+    }
+
+    function fimBispo() {
+        imagemFundo.src = ''
+        nome.innerHTML = 'FIM DA HISTÓRIA'
+        texto.innerHTML = '<h2 style="color: #dc2626 margin-bottom: 15px">O Novo Bispo</h2>Você usa a técnica do Seizing para abrir as portas, mas a magia de Dema te corrompe. A mancha negra sobe por suas mãos. Nico te entrega o manto vermelho. Você não quebrou os muros, você se tornou parte deles.'
+        botoes.innerHTML = '<button onclick="reiniciarJogo()">Jogar Novamente</button>'
+    }
+
+    function reiniciarJogo() {
+        telaJogo.hidden = true
+        telaTitulo.hidden = false
+        imagemFundo.src = ''
+    }
+</script>
+
 
 </script>

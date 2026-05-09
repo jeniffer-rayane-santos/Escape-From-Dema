@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SID | Login</title>
-    
+
     <script src="./js/sessao.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-    
+    <link rel="stylesheet" href="../css/style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=BankGothic+Md+BT&display=swap" rel="stylesheet">
@@ -45,16 +45,15 @@
 <script>
 
     function entrar() {
-        
+
         let email = ipt_email.value
         let senha = ipt_senha.value
         let codigo = ipt_codigo.value
 
-
         if (email == "" || senha == "") {
             alert("O preenchimento de todos os campos é obrigatório.")
         } else {
-            /* fetch("/usuarios/autenticar", {
+            fetch("/usuarios/autenticar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -67,23 +66,25 @@
             }).then(function (resposta) {
                 if (resposta.ok) {
                     resposta.json().then(json => {
+
+                        sessionStorage.CODIGO_USUARIO = json.codigo;
                         sessionStorage.EMAIL_USUARIO = json.email;
                         sessionStorage.SENHA_USUARIO = json.senha;
-                        sessionStorage.CODIGO_USUARIO = json.codigo; */
 
                         alert("Acesso concedido.");
 
                         setTimeout(function () {
                             window.location = "play.html";
-                        }, 1500); 
-                    }
-                /* } else {
+                        }, 1500);
+                    });
+                } else {
                     resposta.text().then(texto => {
                         alert("Credenciais inválidas.")
                     })
                 }
             }).catch(function (erro) {
                 console.log(erro)
-            }) */
+            })
         }
+    }
 </script>
