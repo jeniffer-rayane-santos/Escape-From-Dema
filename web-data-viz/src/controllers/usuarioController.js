@@ -1,28 +1,30 @@
 var usuarioModel = require("../models/usuarioModel")
 
 function autenticar(req, res) {
+    var codigo = req.body.codigoServer
     var email = req.body.emailServer
     var senha = req.body.senhaServer
-    var codigo = req.body.codigoServer
 
-    if (email == undefined) {
-        res.status(400).send("Seu email está undefined!")
+
+    if (codigo == undefined) {
+        res.status(400).send("Seu código está indefinido!")
+    }
+    else if (email == undefined) {
+        res.status(400).send("Seu email está indefinido!")
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!")
-    } else if (codigo == undefined) {
-        res.status(400).send("Seu código está indefinida!")
     } else {
 
-        usuarioModel.autenticar(email, senha, codigo)
+        usuarioModel.autenticar(codigo, email, senha)
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`)
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`) 
+                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`)
 
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar)
 
-                        usuarioModel.autenticar(codigo,email,senha)
+                        usuarioModel.autenticar(codigo, email, senha)
                             .then((resultadoUsuarios) => {
                                 if (resultadoUsuarios.length > 0) {
                                     res.json({
@@ -61,13 +63,13 @@ function cadastrar(req, res) {
     var senha = req.body.senhaServer
 
     if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!")
+        res.status(400).send("Seu nome está vazio!")
     } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!")
+        res.status(400).send("Seu email está vazio!")
     } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!")
+        res.status(400).send("Sua senha está vazio!")
     } else if (codigo == undefined) {
-        res.status(400).send("Seu código está undefined!")
+        res.status(400).send("Seu código está vazio!")
     } else {
 
         usuarioModel.cadastrar(codigo, nome, email, senha)

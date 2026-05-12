@@ -1,62 +1,48 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql server
-*/
-
-CREATE DATABASE aquatech;
-
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
-);
+USE dema;
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    codigo CHAR(7),
+    nome VARCHAR(50),
+    email VARCHAR(50),
+    senha CHAR(8)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+CREATE TABLE questionario (
+	numero_pergunta VARCHAR(10),
+    letra_pergunta CHAR(1),
+    personalidade VARCHAR(15),
+    fk_usuario INT,
+    FOREIGN KEY (fk_usuario)
+        REFERENCES usuario (id_usuario)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+INSERT INTO usuario VALUES
+(DEFAULT,'FPE-123','Giovanna','GiovannaTracinkas@gmail.com', '12345678'),
+(DEFAULT,'FPE-321','Vitor','VitorAlmeida@gmail.com', '87654321');
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+INSERT INTO questionario VALUES
+(1,'A','Cauteloso',1),
+(1,'B','Estrategista',2);
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
+INSERT INTO questionario VALUES
+(2,'C','Determinado',1),
+(2,'A','Cauteloso',2);
 
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+INSERT INTO questionario VALUES
+(3,'B','Estrategista',1),
+(3,'A','Cauteloso',2);
+
+INSERT INTO questionario VALUES
+(4,'A','Cauteloso',1),
+(4,'C','Determinado',2);
+
+INSERT INTO questionario VALUES
+(5,'A','Cauteloso',1),
+(5,'C','Determinado',2);
+
+SELECT u.nome, q.numero_pergunta, q.letra_pergunta, q.personalidade FROM usuario u
+JOIN questionario q ON u.id_usuario = q.fk_usuario;
+
+
+
