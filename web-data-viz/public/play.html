@@ -90,9 +90,10 @@
         imagemFundo.src = '../assets/Quarto.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Mas antes que possa absorver a gravidade da situação, o silêncio do corredor é quebrado, você ouve o som inconfundível de botas pesadas marchando em sincronia, estão vindo em direção à sua cela, faltam poucos segundos para abrirem a tranca e te verem ali, desperto e com a prova da rebelião nas mãos, <b>o que você faz?</b>'
-        botoes.innerHTML = '<button onclick="guardaA()">A) Esconder a carta </button>' +
-            '<button onclick="guardaB()">B) Se impor </button>' +
-            '<button onclick="guardaC()">C) Destruir a carta</button>'
+        botoes.innerHTML =
+            '<button onclick="guardaA(); salvar(1, \'A\', \'guarda\', sessionStorage.getItem(\'ID_USUARIO\'))">A) Esconder a carta</button>' +
+            '<button onclick="guardaB(); salvar(1, \'B\', \'guarda\', sessionStorage.getItem(\'ID_USUARIO\'))">B) Se impor</button>' +
+            '<button onclick="guardaC(); salvar(1, \'C\', \'guarda\', sessionStorage.getItem(\'ID_USUARIO\'))">C) Destruir a carta</button>'
     }
 
 
@@ -142,9 +143,10 @@
         imagemFundo.src = '../assets/torre.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você está no alto de uma torre vertiginosa, a prisão de Dema, o abismo central é iluminado por luzes brancas, de repente, passos metálicos ecoam subindo as escadas.'
-        botoes.innerHTML = '<button onclick="torreA()">A) Se esconder</button>' +
-            '<button onclick="torreB()">B) Descer correndo as escadas</button>' +
-            '<button onclick="torreC()">C) Armar uma emboscada</button>'
+        botoes.innerHTML =
+            '<button onclick="torreA(); salvar(2, \'A\', \'torre\', sessionStorage.getItem(\'ID_USUARIO\'))">A) Se esconder</button>' +
+            '<button onclick="torreB(); salvar(2, \'B\', \'torre\', sessionStorage.getItem(\'ID_USUARIO\'))">B) Descer correndo as escadas</button>' +
+            '<button onclick="torreC(); salvar(2, \'C\', \'torre\', sessionStorage.getItem(\'ID_USUARIO\'))">C) Armar uma emboscada</button>'
     }
 
     function torreA() {
@@ -172,9 +174,10 @@
         imagemFundo.src = '../assets/patio.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você empurra a porta e sai no pátio dos Falsos Ídolos, no centro, uma estátua em uma posição estranha é iluminada por neons brancos, você lembra do presente que havia recebido na sua cela e retira a bussóla do bolso, que por sua vez aponta para uma árvore ao Leste, do outro lado do pátio. <b>o que você faz?</b>'
-        botoes.innerHTML = '<button onclick="patioA()">A)Atravessar cautelosamente</button>' +
-            '<button onclick="patioB()">B) Atravessar estratégicamente</button>' +
-            '<button onclick="patioC()">C) Quebrar a estátua e seguir caminho</button>'
+        botoes.innerHTML =
+            '<button onclick="patioA(); salvar(3, \'A\', \'patio\', sessionStorage.getItem(\'ID_USUARIO\'))">A) Atravessar cautelosamente</button>' +
+            '<button onclick="patioB(); salvar(3, \'B\', \'patio\', sessionStorage.getItem(\'ID_USUARIO\'))">B) Atravessar estratégicamente</button>' +
+            '<button onclick="patioC(); salvar(3, \'C\', \'patio\', sessionStorage.getItem(\'ID_USUARIO\'))">C) Quebrar a estátua e seguir caminho</button>'
     }
 
     function patioA() {
@@ -230,9 +233,10 @@
         imagemFundo.src = '../assets/torchbearer.png'
         nome.innerHTML = 'TORCHBEARER'
         texto.innerHTML = '"Olá [nome] você chegou a Trench precisamente no estreito do paladino," diz o Torchbearer, segurando um fogo vivo sob a névoa fria. "A água separa você da torre dos bispos, a decisão de como enfrentar e sobreviver a essa barreira é inteiramente sua."'
-        botoes.innerHTML = '<button onclick="fimBispo()">A)Se entregar.</button>' +
-            '<button onclick="fimFuga()">B)Fugir</button>' +
-            '<button onclick="fimEnfrentamento()">C) Enfrentar</button>'
+        botoes.innerHTML =
+            '<button onclick="fimBispo(); salvar(4, \'A\', \'final\', sessionStorage.getItem(\'ID_USUARIO\'))">A) Se entregar.</button>' +
+            '<button onclick="fimFuga(); salvar(4, \'B\', \'final\', sessionStorage.getItem(\'ID_USUARIO\'))">B) Fugir</button>' +
+            '<button onclick="fimEnfrentamento(); salvar(4, \'C\', \'final\', sessionStorage.getItem(\'ID_USUARIO\'))">C) Enfrentar</button>'
     }
 
     function fimEnfrentamento() {
@@ -262,15 +266,39 @@
         imagemFundo.src = '../assets/background.png'
     }
 
-    function salvar(numeroPergunta, questao, tipoPergunta, idUsuario){
+    function salvar(numeroPergunta, questao, tipoPergunta, idUsuario) {
 
-        let numPergunta = numeroPergunta
-        let letraQuestao = questao
-        let tipo = tipoPergunta
-        let usuario = idUsuario
+        let numPergunta = numeroPergunta;
+        let letraQuestao = questao;
+        let tipo = tipoPergunta;
+        let usuario = idUsuario;
 
+        fetch("/questionario/salvarQuestao", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                numeroPergunta: numPergunta,
+                questao: letraQuestao,
+                tipoPergunta: tipo,
+                idUsuario: usuario
+            })
+        })
+        .then(function (resposta) {
+            if (resposta.ok) {
+                return resposta.json();
+            } else {
+                throw "Erro ao salvar questão!";
+            }
+        })
+        .then(function (dados) {
+            console.log("Questão salva com sucesso:", dados);
+        })
+        .catch(function (erro) {
+            console.log(erro);
+        });
 
-        fetch(``)
     }
 
 </script>
