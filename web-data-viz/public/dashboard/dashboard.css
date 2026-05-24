@@ -1,0 +1,259 @@
+body.telaPainel {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #fff;
+  font-family: 'BankGothic Md BT', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 40%;
+}
+
+.sobreposicao {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.cabecalho {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 22px 0;
+  text-align: center;
+  border-bottom: 2px solid #222;
+}
+
+.cabecalho h1 {
+  color: #fff;
+  font-family: 'BankGothic Md BT', sans-serif;
+  font-size: 26px;
+  letter-spacing: 4px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.telaEstatisticas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 50px 60px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.estatisticasBolhas {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.itemEstatistica {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.bola {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'BankGothic Md BT', sans-serif;
+  flex-shrink: 0;
+}
+
+.bolaVermelha {
+  background: #dc2626;
+  color: #fff;
+}
+
+.bolaPreta {
+  background: #111;
+  border: 2px solid #555;
+  color: #fff;
+}
+
+.bolaAmarela {
+  background: #facc15;
+  color: #000;
+}
+
+.itemEstatistica p {
+  color: #ccc;
+  font-family: 'BankGothic Md BT', sans-serif;
+  font-size: 15px;
+  max-width: 180px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.containerRadar {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  max-width: 90vw;
+  background: rgba(255, 255, 255, 0.55);
+  border: 5px solid #000000;
+  padding: 20px;
+}
+
+.telaSemDados {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.telaSemDados p {
+  font-family: 'BankGothic Md BT', sans-serif;
+  font-size: 22px;
+  color: #fff;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.subSemDados {
+  font-size: 26px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.telaSemDados button {
+  background: rgb(15, 15, 15);
+  color: #fff;
+  padding: 14px 42px;
+  cursor: pointer;
+  font-family: 'BankGothic Md BT', sans-serif;
+  font-size: 20px;
+  border: 1px solid #555;
+  letter-spacing: 3px;
+  transition: 0.2s;
+  margin-top: 10px;
+}
+
+.telaSemDados button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.btn-voltar {
+  text-align: center;
+  padding: 30px 0 40px;
+}
+
+.btn-voltar button {
+  background: rgb(15, 15, 15);
+  color: #fff;
+  padding: 14px 42px;
+  cursor: pointer;
+  font-family: 'BankGothic Md BT', sans-serif;
+  font-size: 18px;
+  border: 1px solid #444;
+  letter-spacing: 2px;
+  transition: 0.2s;
+}
+
+.btn-voltar button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.estatisticasEsquerda {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.cartaoConsistencia {
+  background: rgba(0, 0, 0, 0.82);
+  border: 1px solid #3a3a3a;
+  padding: 22px 28px;
+  text-align: center;
+  min-width: 260px;
+}
+
+.labelConsistencia {
+  font-family: 'BankGothic Md BT', sans-serif;
+  font-size: 20px;
+  color: #bbb;
+  letter-spacing: 3px;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.valorConsistencia {
+  font-family: 'BankGothic Md BT', sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0 0 8px;
+  line-height: 1;
+}
+
+.perfilConsistencia {
+  font-family: 'BankGothic Md BT', sans-serif;
+  font-size: 13px;
+  color: #ccc;
+  margin: 0 0 14px;
+}
+
+.perfilConsistencia span {
+  color: #fff;
+  font-weight: bold;
+}
+
+.formulaConsistencia {
+  font-family: 'BankGothic Md BT', sans-serif;
+  font-size: 15px;
+  color: #fff;
+  letter-spacing: 0.5px;
+  margin: 0;
+  border-top: 1px solid #333;
+  padding-top: 12px;
+  line-height: 1.6;
+}
+
+.secaoGraficoBarra {
+  padding: 0 60px 20px;
+}
+
+.tituloGrafico {
+  font-family: 'BankGothic Md BT', sans-serif;
+  font-size: 20px;
+  letter-spacing: 4px;
+  color: #bbb;
+  text-align: center;
+  margin: 0 0 16px;
+  font-weight: normal;
+}
+
+.containerGraficoBarra {
+  position: relative;
+  height: 260px;
+  max-width: 860px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.80);
+  border: 1px solid #3a3a3a;
+  padding: 24px;
+  box-sizing: border-box;
+}
