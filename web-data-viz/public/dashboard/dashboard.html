@@ -1,26 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/dashboards.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Escape from Dema | Estatísticas</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
 
-    <div class="navbar">
-        <a><button onclick="window.location.href='cadastro.html'">Cadastre-se</button></a>
-        <a><button onclick="window.location.href='login.html'">Entre</button></a>
+<body class="telaPainel">
+
+    <img id="background" src="../assets/background.png">
+
+    <div class="sobreposicao">
+
+        <div class="cabecalho">
+            <h1>ESTATÍSTICAS DE MODO DE JOGO</h1>
+        </div>
+
+        <div id="semDados" class="telaSemDados" hidden>
+            <p class="legenda">Jogue uma partida para ver as estatísticas aqui.</p>
+        </div>
+
+        <div id="comDados" class="telaEstatisticas" hidden>
+
+            <div class="estatisticasEsquerda">
+
+                <div class="estatisticasBolhas">
+                    <div class="itemEstatistica">
+                        <div class="bola bolaVermelha" id="pctCauteloso">--</div>
+                        <p>Toma decisões a partir do medo</p>
+                    </div>
+                    <div class="itemEstatistica">
+                        <div class="bola bolaPreta" id="pctDeterminado">--</div>
+                        <p>Toma decisões a partir da emoção</p>
+                    </div>
+                    <div class="itemEstatistica">
+                        <div class="bola bolaAmarela" id="pctEstrategista">--</div>
+                        <p>Toma decisões a partir de fatos</p>
+                    </div>
+                </div>
+
+                <div class="cartaoConsistencia">
+                    <p class="labelConsistencia">ÍNDICE DE CONSISTÊNCIA</p>
+                    <p class="valorConsistencia" id="indiceConsistencia">--</p>
+                    <p class="perfilConsistencia">Perfil dominante: <span id="perfilDominante">--</span></p>
+                    <p class="formulaConsistencia">( Respostas do perfil dominante ÷ Total de respostas ) × 100</p>
+                </div>
+
+            </div>
+
+            <div class="containerRadar">
+                <canvas id="radarChart"></canvas>
+            </div>
+
+        </div>
+
+        <div id="secaoBarra" class="secaoGraficoBarra" hidden>
+            <h2 class="tituloGrafico">ESCOLHAS POR PERGUNTA — TODOS OS JOGADORES</h2>
+            <div class="containerGraficoBarra">
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
+
+        <div class="btn-voltar">
+            <button onclick="window.location.href='../play.html'">← VOLTAR AO JOGO</button>
+        </div>
+
     </div>
 
-    <h1>Estatísticas de modo de jogo</h1>
-
-    <div class="kpi">
-        <span>Lorem Ipsum</span>
-        <span>Lorem Ipsum</span>
-        <span>Lorem Ipsum</span>
     </div>
 
 </body>
+
 </html>
+
+<script>
+    
+    let idUsuario = sessionStorage.getItem('ID_USUARIO');
+
+    function renderizarGrafico() {
+        new Chart(radarChart, {
+            type: 'radar',
+            data: {
+                labels: ['Medo', 'Coragem', 'Intuição'],
+                datasets: [
+                    {
+                        label: 'Estrategista',
+                        data: [5, 6, 9],
+                        backgroundColor: 'rgba(250, 204, 21, 0.50)',
+                        borderColor: 'rgb(250, 204, 21)',
+                        pointBackgroundColor: 'rgb(250, 204, 21)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Determinado',
+                        data: [3, 9, 5],
+                        backgroundColor: 'rgba(17, 17, 17, 0.5)',
+                        borderColor: 'rgb(17, 17, 17)',
+                        pointBackgroundColor: 'rgb(17, 17, 17)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Cauteloso',
+                        data: [9, 3, 6],
+                        backgroundColor: 'rgba(220, 38, 38, 0.5)',
+                        borderColor: 'rgb(220, 38, 38)',
+                        pointBackgroundColor: 'rgb(220, 38, 38)',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 10,
+                        ticks: {
+                            color: 'black',
+                            stepSize: 2,
+                            backdropColor: 'transparent',
+                            font: { family: 'BankGothic Md BT', size: 11 }
+                        },
+                        pointLabels: {
+                            color: 'rgba(17, 17, 17)',
+                            font: { family: 'BankGothic Md BT', size: 14}
+                        },
+                        grid: { color: 'rgba(17, 17, 17)' },
+                        angleLines: { color: 'rgba(17, 17, 17)' }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'rgba(17, 17, 17, 0.75)',
+                            font: { family: 'BankGothic Md BT', size: 13 },
+                            padding: 20,
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function carregarEscolhasPorPergunta() {
+
+        new Chart(barChart, {
+            type: 'bar',
+            data: {
+                labels: ['Pergunta 1', 'Pergunta 2', 'Pergunta 3', 'Pergunta 4'],
+                datasets: [
+                    {
+                        label: 'Cauteloso',
+                        data: [5, 2, 8, 3],
+                        backgroundColor: 'rgba(220, 38, 38, 0.75)',
+                        borderColor: 'rgb(220, 38, 38)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Determinado',
+                        data: [2, 7, 4, 6],
+                        backgroundColor: 'rgba(17, 17, 17, 0.75)',
+                        borderColor: 'rgb(17, 17, 17)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Estrategista',
+                        data: [8, 4, 5, 9],
+                        backgroundColor: 'rgba(250, 204, 21, 0.75)',
+                        borderColor: 'rgb(250, 204, 21)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        ticks: { color: '#ccc', font: { family: 'BankGothic Md BT', size: 12 } },
+                        grid: { color: 'rgba(255,255,255,0.06)' }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#ccc',
+                            font: { family: 'BankGothic Md BT', size: 11 },
+                            stepSize: 1
+                        },
+                        grid: { color: 'rgba(255,255,255,0.06)' }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#fff',
+                            font: { family: 'BankGothic Md BT', size: 12 },
+                            padding: 20
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    semDados.hidden = true;
+    comDados.hidden = false;
+    secaoBarra.hidden = false;
+
+    renderizarGrafico();
+    carregarEscolhasPorPergunta();
+
+</script>
