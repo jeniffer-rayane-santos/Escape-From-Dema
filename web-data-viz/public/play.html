@@ -31,6 +31,7 @@
 </html>
 
 <script>
+    
     function cenaIntro1() {
         telaTitulo.hidden = true
         telaJogo.hidden = false
@@ -38,6 +39,27 @@
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Lá fora, o brilho artificial da cidade está mais forte do que nunca, hoje é a Assembleia Anual dos Glorificados, a grande cerimônia onde os cidadãos de Dema se entregam ao Vialismo, uma religião que preza pela desistência de si mesmo, que seus devotos se tornem uma casca vazia, mas você não estava pronto, na verdade, você se recusou a se entregar.'
         botoes.innerHTML = '<button onclick="cenaIntro2()">Continuar</button>'
+
+        let usuario = sessionStorage.getItem('ID_USUARIO')
+
+        fetch("/questionario/deletarQuestoes", {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuario: usuario
+            })
+        })
+            .then(function (resposta) {
+                return resposta.json()
+            })
+            .then(function (dados) {
+                console.log(dados.mensagem)
+            })
+            .catch(function (erro) {
+                console.log(erro)
+            })
     }
 
     function cenaIntro2() {
@@ -222,7 +244,7 @@
         botoes.innerHTML = '<button onclick="cenaTrincheira2()">Continuar</button>'
     }
 
-     function cenaTrincheira2() {
+    function cenaTrincheira2() {
         imagemFundo.src = '../assets/escada3.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você sai no final da trincheira que te dá a visão de uma escada para a superfície, e com animosidade você sobe as escadas.'
@@ -285,20 +307,41 @@
                 idUsuario: usuario
             })
         })
-        .then(function (resposta) {
-            if (resposta.ok) {
-                return resposta.json();
-            } else {
-                throw "Erro ao salvar questão!";
-            }
-        })
-        .then(function (dados) {
-            console.log("Questão salva com sucesso:", dados);
-        })
-        .catch(function (erro) {
-            console.log(erro);
-        });
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    return resposta.json()
+                } else {
+                    throw "Erro ao salvar questão!"
+                }
+            })
+            .then(function (dados) {
+                console.log("Questão salva com sucesso:", dados)
+            })
+            .catch(function (erro) {
+                console.log(erro)
+            })
 
     }
 
+    function aoClicarPlay() {
+        fetch("/questionario/deletarQuestoes", {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuario: usuario
+            })
+        })
+            .then(function (resposta) {
+                return resposta.json()
+            })
+            .then(function (dados) {
+                console.log(dados.mensagem)
+
+            })
+            .catch(function (erro) {
+                console.log("Erro ao deletar questões:", erro)
+            });
+    }
 </script>
