@@ -8,8 +8,8 @@ router.post("/salvarQuestao", function (req, res) {
     questionarioController.salvarQuestao(req, res);
 })
 
-// router.post("/autenticar", function (req, res) {
-//     usuarioController.autenticar(req, res);
-// });
+router.delete("/deletarQuestoes", function (req, res) {
+    questionarioController.deletarQuestoes(req, res);
+});
 
 module.exports = router;

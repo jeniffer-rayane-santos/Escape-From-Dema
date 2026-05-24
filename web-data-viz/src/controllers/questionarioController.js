@@ -40,6 +40,30 @@ function salvarQuestao(req, res) {
     }
 }
 
+function deletarQuestoes(req, res) {
+
+    let idUsuario = req.body.idUsuario;
+
+    if (idUsuario == undefined) {
+        res.status(400).send("O ID do usuário está vazio!");
+    } else {
+
+        questionarioModel.deletarQuestoes(idUsuario)
+            .then(function (resultado) {
+                res.json({
+                    mensagem: "Questões deletadas com sucesso!",
+                    idUsuario: idUsuario
+                });
+            })
+            .catch(function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao deletar as questões! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            });
+    }
+}
+
 module.exports = {
-    salvarQuestao
+    salvarQuestao,
+    deletarQuestoes
 }
