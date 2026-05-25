@@ -1,29 +1,55 @@
 var database = require("../database/config")
 
-// Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
 function salvarQuestao(numPergunta, letraQuestao, tipo, usuario) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function salvarQuestap():", numPergunta, letraQuestao, tipo, usuario);
-
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO questionario (numero_pergunta,letra_pergunta, personalidade,fk_usuario) VALUES (${numPergunta},'${letraQuestao}','${tipo}',${usuario});`;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+        INSERT INTO questionario (numero_pergunta, letra_pergunta, personalidade, fk_usuario)
+        VALUES (${numPergunta}, '${letraQuestao}', '${tipo}', ${usuario});
+    `;
+    return database.executar(instrucaoSql)
+}
+
+function obterEstatisticas() {
+    var instrucaoSql = `SELECT personalidade, COUNT(*) as total FROM questionario GROUP BY personalidade`
+    return database.executar(instrucaoSql)
+}
+
+function usuarioJogou(idUsuario) {
+    var instrucaoSql = `SELECT COUNT(*) as total FROM questionario WHERE fk_usuario = ${idUsuario}`
+    return database.executar(instrucaoSql)
 }
 
 function deletarQuestoes(idUsuario) {
-    console.log("Deletando questões do usuário:", idUsuario);
-
     var instrucaoSql = `
         DELETE FROM questionario WHERE fk_usuario = ${idUsuario};
     `;
+    return database.executar(instrucaoSql)
+}
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+function obterEscolhasPorPergunta() {
+    var instrucaoSql = `
+    SELECT numero_pergunta, personalidade, COUNT(*) as total
+    FROM questionario
+    GROUP BY numero_pergunta, personalidade
+    ORDER BY (numero_pergunta + 0), personalidade;
+    `
+    return database.executar(instrucaoSql)
+}
+
+function obterRespostasJogador(idUsuario) {
+    var instrucaoSql = `
+        SELECT personalidade, COUNT(*) as total
+        FROM questionario
+        WHERE fk_usuario = ${idUsuario}
+        GROUP BY personalidade
+    `
+    return database.executar(instrucaoSql)
 }
 
 module.exports = {
     salvarQuestao,
-    deletarQuestoes
-};
+    obterEstatisticas,
+    usuarioJogou,
+    deletarQuestoes,
+    obterEscolhasPorPergunta,
+    obterRespostasJogador
+}
