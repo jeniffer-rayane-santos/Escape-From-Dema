@@ -3,13 +3,28 @@ var router = express.Router();
 
 var questionarioController = require("../controllers/questionarioController");
 
-//Recebendo os dados do html e direcionando para a função cadastrar de questionarioController.js
 router.post("/salvarQuestao", function (req, res) {
     questionarioController.salvarQuestao(req, res);
 })
 
+router.get("/estatisticas", function (req, res) {
+    questionarioController.obterEstatisticas(req, res);
+})
+
+router.get("/jogou/:idUsuario", function (req, res) {
+    questionarioController.usuarioJogou(req, res);
+})
+
 router.delete("/deletarQuestoes", function (req, res) {
     questionarioController.deletarQuestoes(req, res);
+});
+
+router.get("/escolhasPorPergunta", function (req, res) {
+    questionarioController.obterEscolhasPorPergunta(req, res);
+});
+
+router.get("/respostasJogador/:idUsuario", function (req, res) {
+    questionarioController.obterRespostasJogador(req, res);
 });
 
 module.exports = router;
