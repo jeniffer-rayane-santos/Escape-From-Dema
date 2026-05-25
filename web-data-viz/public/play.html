@@ -17,6 +17,7 @@
         <div id="telaTitulo">
             <span class="logo"> <img src="../assets/logo.png" alt=""></span>
             <button class="btn-centro" onclick="cenaIntro1()">PLAY</button>
+            <button class="btn-centro" onclick="window.location.href='./dashboard/dashboard.html'" style="margin-top: 20px; font-size: 25px;">ESTATÍSTICAS</button>
         </div>
 
         <div id="telaJogo" hidden>
@@ -85,17 +86,17 @@
 
     function cenaIntro5() {
         imagemFundo.src = '../assets/carta.png'
-        document.getElementById("nome").style.display = "none"
-        document.getElementById("texto").style.display = "none"
-        document.getElementById("botoes").style.width = "208px"
-        document.getElementById("botoes").innerHTML = '<button onclick="cenaIntro6()">Continuar</button>'
+        nome.style.display = "none"
+        texto.style.display = "none"
+        botoes.style.width = "208px"
+        botoes.innerHTML = '<button onclick="cenaIntro6()">Continuar</button>'
     }
 
     function cenaIntro6() {
         imagemFundo.src = '../assets/Quarto.png'
-        document.getElementById("nome").style.display = "block"
-        document.getElementById("texto").style.display = "block"
-        document.getElementById("botoes").style.width = "1408px"
+        nome.style.display = "block"
+        texto.style.display = "block"
+        botoes.style.width = "1408px"
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você abre um pouco o casaco e toma um susto: no meio da escuridão daquela cela, fitas amarelas e vibrantes prendem um pedaço de papel desgastado ao forro da sua roupa, alguém conseguiu se infiltrar, passar pelos guardas e colar isso em você sem que percebessem.'
         botoes.innerHTML = '<button onclick="cenaIntro7()">Continuar</button>'
@@ -164,7 +165,7 @@
     function cenaTorre() {
         imagemFundo.src = '../assets/torre.png'
         nome.innerHTML = 'NARRADOR'
-        texto.innerHTML = 'Você está no alto de uma torre vertiginosa, a prisão de Dema, o abismo central é iluminado por luzes brancas, de repente, passos metálicos ecoam subindo as escadas.'
+        texto.innerHTML = 'Você está no alto de uma torre vertiginosa, a prisão de Dema, o abismo central é iluminado por lightes brancas, de repente, passos metálicos ecoam subindo as escadas.'
         botoes.innerHTML =
             '<button onclick="torreA(); salvar(2, \'A\', \'Cauteloso\', sessionStorage.getItem(\'ID_USUARIO\'))">A) Se esconder</button>' +
             '<button onclick="torreB(); salvar(2, \'B\', \'Determinado\', sessionStorage.getItem(\'ID_USUARIO\'))">B) Descer correndo as escadas</button>' +
@@ -271,7 +272,7 @@
     function fimFuga() {
         imagemFundo.src = '../assets/final2.png'
         nome.innerHTML = 'FIM DA HISTÓRIA'
-        texto.innerHTML = '<h2 style="color: #94a3b8; margin-bottom: 15px;">A Sobrevivência (Final Bom) 2/3</h2>Sob o manto protetor da neblina, você e os outros fogem em silêncio absoluto em um barco contrabandeado, Você deixa Dema para trás sem confrontar o vialismo diretamente, mas escolhendo a vida, sua recuperação será um longo caminho, mas as luzes da cidade finalmente desaparecem no horizonte, você está livre para respirar um dia de cada vez, <b>O sol vai nascer e nós vamos tentar de novo.</b>'
+        texto.innerHTML = '<h2 style="color: #94a3b8; margin-bottom: 15px;">A Sobrevivência (Final Bom) 2/3</h2>Sob o manto protetor da neblina, você e os outros fogem em silêncio absoluto em um barco contrabandeado, Você deixa Dema para trás sem confrontar o vialismo diretamente, mas escolhendo a vida, sua recuperação será um longo caminho, mas as lightes da cidade finalmente desaparecem no horizonte, você está livre para respirar um dia de cada vez, <b>O sol vai nascer e nós vamos tentar de novo.</b>'
         botoes.innerHTML = '<button onclick="reiniciarJogo()">Jogar Novamente</button>'
     }
 
