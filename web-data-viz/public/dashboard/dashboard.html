@@ -57,18 +57,9 @@
 
         </div>
 
-        <div id="secaoBarra" class="secaoGraficoBarra" hidden>
-            <h2 class="tituloGrafico">ESCOLHAS POR PERGUNTA — TODOS OS JOGADORES</h2>
-            <div class="containerGraficoBarra">
-                <canvas id="barChart"></canvas>
-            </div>
-        </div>
-
         <div class="btn-voltar">
             <button onclick="window.location.href='../play.html'">← VOLTAR AO JOGO</button>
         </div>
-
-    </div>
 
     </div>
 
@@ -80,138 +71,182 @@
     
     let idUsuario = sessionStorage.getItem('ID_USUARIO');
 
-    function renderizarGrafico() {
-        new Chart(radarChart, {
-            type: 'radar',
-            data: {
-                labels: ['Medo', 'Coragem', 'Intuição'],
-                datasets: [
-                    {
+    function mostrarSemDados() {
+        semDados.hidden = false;
+        comDados.hidden = true;
+    }
+
+    function renderizarRadar(id) {
+        fetch('/questionario/respostasJogador/' + id)
+            .then(function (r) { return r.json(); })
+            .then(function (dados) {
+                let valCauteloso = 0;
+                let valDeterminado = 0;
+                let valEstrategista = 0;
+                let i = 0;
+                
+                while (i < dados.length) {
+                    if (dados[i].personalidade == 'Cauteloso') {
+                        valCauteloso = parseInt(dados[i].total);
+                    } else if (dados[i].personalidade == 'Determinado') {
+                        valDeterminado = parseInt(dados[i].total);
+                    } else if (dados[i].personalidade == 'Estrategista') {
+                        valEstrategista = parseInt(dados[i].total);
+                    }
+                    i = i + 1;
+                }
+
+                new Chart(radarChart, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Medo', 'Emoção', 'Fatídico'],
+                        datasets: [
+                            {
                         label: 'Estrategista',
                         data: [5, 6, 9],
-                        backgroundColor: 'rgba(250, 204, 21, 0.50)',
-                        borderColor: 'rgb(250, 204, 21)',
-                        pointBackgroundColor: 'rgb(250, 204, 21)',
+                        backgroundColor: 'rgb(250, 204, 0.25, 0.35)',
+                        borderColor: 'rgb(250, 204, 0.25, 0.35)',
+                        pointBackgroundColor: 'rgb(250, 204, 0.25, 0.35)',
                         borderWidth: 2
                     },
                     {
                         label: 'Determinado',
                         data: [3, 9, 5],
-                        backgroundColor: 'rgba(17, 17, 17, 0.5)',
-                        borderColor: 'rgb(17, 17, 17)',
-                        pointBackgroundColor: 'rgb(17, 17, 17)',
+                        backgroundColor: 'rgba(17, 17, 17, 0.35)',
+                        borderColor: 'rgba(17, 17, 17, 0.35)',
+                        pointBackgroundColor: 'rgba(17, 17, 17, 0.35)',
                         borderWidth: 2
                     },
                     {
                         label: 'Cauteloso',
                         data: [9, 3, 6],
-                        backgroundColor: 'rgba(220, 38, 38, 0.5)',
-                        borderColor: 'rgb(220, 38, 38)',
-                        pointBackgroundColor: 'rgb(220, 38, 38)',
+                        backgroundColor: 'rgba(220, 38, 38, 0.35)',
+                        borderColor: 'rgba(220, 38, 38, 0.35)',
+                        pointBackgroundColor: 'rgba(220, 38, 38, 0.35)',
                         borderWidth: 2
                     }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    r: {
-                        min: 0,
-                        max: 10,
-                        ticks: {
-                            color: 'black',
-                            stepSize: 2,
-                            backdropColor: 'transparent',
-                            font: { family: 'BankGothic Md BT', size: 11 }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                min: 1,
+                                max: 10,
+                                ticks: {
+                                    color: 'black',
+                                    stepSize: 1,
+                                    backdropColor: 'transparent',
+                                    font: { family: 'BankGothic Md BT', size: 11 }
+                                },
+                                pointLabels: {
+                                    color: 'rgba(17, 17, 17)',
+                                    font: { family: 'BankGothic Md BT', size: 14}
+                                },
+                                grid: { color: 'rgba(17, 17, 17)' },
+                                angleLines: { color: 'rgba(17, 17, 17)' }
+                            }
                         },
-                        pointLabels: {
-                            color: 'rgba(17, 17, 17)',
-                            font: { family: 'BankGothic Md BT', size: 14}
-                        },
-                        grid: { color: 'rgba(17, 17, 17)' },
-                        angleLines: { color: 'rgba(17, 17, 17)' }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: 'rgba(17, 17, 17, 0.75)',
-                            font: { family: 'BankGothic Md BT', size: 13 },
-                            padding: 20,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: 'rgba(17, 17, 17, 0.75)',
+                                    font: { family: 'BankGothic Md BT', size: 13 },
+                                    padding: 25,
+                                }
+                            }
                         }
                     }
-                }
-            }
-        });
+                });
+            });
     }
 
-    function carregarEscolhasPorPergunta() {
-
-        new Chart(barChart, {
-            type: 'bar',
-            data: {
-                labels: ['Pergunta 1', 'Pergunta 2', 'Pergunta 3', 'Pergunta 4'],
-                datasets: [
-                    {
-                        label: 'Cauteloso',
-                        data: [5, 2, 8, 3],
-                        backgroundColor: 'rgba(220, 38, 38, 0.75)',
-                        borderColor: 'rgb(220, 38, 38)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Determinado',
-                        data: [2, 7, 4, 6],
-                        backgroundColor: 'rgba(17, 17, 17, 0.75)',
-                        borderColor: 'rgb(17, 17, 17)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Estrategista',
-                        data: [8, 4, 5, 9],
-                        backgroundColor: 'rgba(250, 204, 21, 0.75)',
-                        borderColor: 'rgb(250, 204, 21)',
-                        borderWidth: 1
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        ticks: { color: '#ccc', font: { family: 'BankGothic Md BT', size: 12 } },
-                        grid: { color: 'rgba(255,255,255,0.06)' }
-                    },
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            color: '#ccc',
-                            font: { family: 'BankGothic Md BT', size: 11 },
-                            stepSize: 1
-                        },
-                        grid: { color: 'rgba(255,255,255,0.06)' }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#fff',
-                            font: { family: 'BankGothic Md BT', size: 12 },
-                            padding: 20
-                        }
-                    }
+    function carregarEstatisticas() {
+        fetch('/questionario/estatisticas')
+            .then(function (r) { return r.json(); })
+            .then(function (dados) {
+                let total = 0;
+                let i = 0;
+                
+                while (i < dados.length) {
+                    total = total + parseInt(dados[i].total);
+                    i = i + 1;
                 }
-            }
-        });
+                
+                i = 0;
+                while (i < dados.length) {
+                    let pct = Math.round((parseInt(dados[i].total) / total) * 100);
+                    if (dados[i].personalidade == 'Cauteloso') {
+                        pctCauteloso.textContent = pct + '%';
+                    } else if (dados[i].personalidade == 'Determinado') {
+                        pctDeterminado.textContent = pct + '%';
+                    } else if (dados[i].personalidade == 'Estrategista') {
+                        pctEstrategista.textContent = pct + '%';
+                    }
+                    i = i + 1;
+                }
+            });
     }
 
-    semDados.hidden = true;
-    comDados.hidden = false;
-    secaoBarra.hidden = false;
+    function carregarConsistencia(id) {
+        fetch('/questionario/respostasJogador/' + id)
+            .then(function (r) { return r.json(); })
+            .then(function (dados) {
+                if (dados.length == 0) {
+                    return;
+                }
+                
+                let totalRespostas = 0;
+                let maiorContagem = 0;
+                let perfilDominanteNome = '--';
+                let i = 0;
+                
+                while (i < dados.length) {
+                    let qtd = parseInt(dados[i].total);
+                    totalRespostas = totalRespostas + qtd;
+                    
+                    if (qtd > maiorContagem) {
+                        maiorContagem = qtd;
+                        perfilDominanteNome = dados[i].personalidade;
+                    }
+                    i = i + 1;
+                }
+                
+                let indice = Math.round((maiorContagem / totalRespostas) * 100);
+                indiceConsistencia.textContent = indice + '%';
+                perfilDominante.textContent = perfilDominanteNome;
+            });
+    }
 
-    renderizarGrafico();
-    carregarEscolhasPorPergunta();
-
+    if (idUsuario == null || idUsuario == 'null' || idUsuario == undefined) {
+        alert("ERRO 1: Você não está logado! Faça o login no sistema primeiro para testar os gráficos.");
+        mostrarSemDados();
+    } else {
+        fetch('/questionario/jogou/' + idUsuario)
+            .then(function (r) { 
+                if(r.ok) {
+                    return r.json(); 
+                } else {
+                    throw "A rota não foi encontrada.";
+                }
+            })
+            .then(function (resposta) {
+                if (resposta.jogou == false) {
+                    alert("ERRO 2: O Banco de Dados diz que o usuário " + idUsuario + " ainda não tem respostas cadastradas. Termine de jogar a história!");
+                    mostrarSemDados();
+                } else {
+                    semDados.hidden = true;
+                    comDados.hidden = false;
+                    carregarEstatisticas();
+                    carregarConsistencia(idUsuario);
+                    renderizarRadar(idUsuario);
+                }
+            })
+            .catch(function (erro) {
+                alert("ERRO 3: Falha ao se conectar com a API! Você esqueceu de reiniciar o servidor (npm start)? Erro: " + erro);
+                mostrarSemDados();
+            });
+    }
+    
 </script>

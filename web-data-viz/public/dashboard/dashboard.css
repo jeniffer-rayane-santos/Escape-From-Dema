@@ -105,8 +105,8 @@ body.telaPainel {
 
 .containerRadar {
   position: relative;
-  width: 480px;
-  height: 480px;
+  width: 600px;
+  height: 600px;
   max-width: 90vw;
   background: rgba(255, 255, 255, 0.55);
   border: 5px solid #000000;
