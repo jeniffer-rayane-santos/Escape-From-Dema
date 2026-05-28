@@ -1,4 +1,4 @@
- * {
+* {
      margin: 0;
      padding: 0;
      box-sizing: border-box;
@@ -77,6 +77,7 @@
      flex-direction: column;
      width: 1408px;
      gap: 10px;
+     position: relative; 
  }
 
  button {
@@ -101,4 +102,30 @@
      width: 300px;
      font-weight: bold;
      font-size: 50px;
+ }
+
+ .btn-voltar {
+    position: absolute;
+    right: -370px;
+    top: 15px;
+    width: 120px !important;
+    height: 40px;
+    font-size: 16px;
+    padding: 5px;
+    text-align: center;
+    background: rgba(50, 50, 50, 0.9);
+    border: 1px solid #fff;
+ }
+
+ #btnPular {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: auto !important;
+    padding: 15px;
+    font-size: 20px;
+    text-align: center;
+    background: rgba(15, 15, 15, 0.8);
+    border: 1px solid #fff;
+    z-index: 100;
  }
