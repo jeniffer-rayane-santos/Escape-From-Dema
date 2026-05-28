@@ -104,19 +104,6 @@
      font-size: 50px;
  }
 
- .btn-voltar {
-    position: absolute;
-    right: -370px;
-    top: 15px;
-    width: 120px !important;
-    height: 40px;
-    font-size: 16px;
-    padding: 5px;
-    text-align: center;
-    background: rgba(50, 50, 50, 0.9);
-    border: 1px solid #fff;
- }
-
  #btnPular {
     position: absolute;
     top: 20px;

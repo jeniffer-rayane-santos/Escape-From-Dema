@@ -34,7 +34,7 @@
 </html>
 
 <script>
-    
+
     let etapaEscolha = 1;
 
     function pularParaEscolhas() {
@@ -83,28 +83,28 @@
         imagemFundo.src = '../assets/Quarto.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Os líderes do Vialismo os Bispos, viram a sua força de vontade, viram que a faísca na sua mente ainda não tinha se apagado, e por isso, você virou um alvo, eles sabem que uma mente que questiona o próprio sofrimento é perigosa para o vialismo, e como punição, isolaram você no complexo prisional de Dema, o objetivo deles não é acabar com você diretamente, mas deixar que a exaustão mental e a tristeza te corroam até que você mesmo aceite a derrota que eles pregam.'
-        botoes.innerHTML = '<button onclick="cenaIntro3()">Continuar</button><button class="btn-voltar" onclick="cenaIntro1()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaIntro3()">Continuar</button>'
     }
 
     function cenaIntro3() {
         imagemFundo.src = '../assets/Quarto.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Encolhido no chão de concreto, o frio da cela parece ecoar a apatia que há tanto tempo domina a sua mente, os cânticos distantes da Assembleia tentam te hipnotizar, puxando seus pensamentos para baixo, mas você resiste.'
-        botoes.innerHTML = '<button onclick="cenaIntro4()">Continuar</button><button class="btn-voltar" onclick="cenaIntro2()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaIntro4()">Continuar</button>'
     }
 
     function cenaIntro4() {
         imagemFundo.src = '../assets/Quarto.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'De repente, você sente um leve incômodo por dentro do tecido do seu casaco, uma textura áspera roça contra o seu peito a cada respiração, há algo escondido no forro do seu casaco cinza, algo que não pertence ao seu uniforme'
-        botoes.innerHTML = '<button onclick="cenaIntro5()">Continuar</button><button class="btn-voltar" onclick="cenaIntro3()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaIntro5()">Continuar</button>'
     }
 
     function cenaIntro5() {
         imagemFundo.src = '../assets/carta.png'
         nome.style.display = "none"
         texto.style.display = "none"
-        botoes.innerHTML = '<button onclick="cenaIntro6()">Continuar</button><button class="btn-voltar" onclick="cenaIntro4()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaIntro6()">Continuar</button>'
     }
 
     function cenaIntro6() {
@@ -113,14 +113,14 @@
         texto.removeAttribute("style")
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você abre um pouco o casaco e toma um susto: no meio da escuridão daquela cela, fitas amarelas e vibrantes prendem um pedaço de papel desgastado ao forro da sua roupa, alguém conseguiu se infiltrar, passar pelos guardas e colar isso em você sem que percebessem.'
-        botoes.innerHTML = '<button onclick="cenaIntro7()">Continuar</button><button class="btn-voltar" onclick="cenaIntro5()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaIntro7()">Continuar</button>'
     }
 
     function cenaIntro7() {
         imagemFundo.src = '../assets/Quarto.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'As palavras no papel são de um tal de Torchbearer, ele te lembrou que Dema não é o seu lar, mas sim uma prisão, o ciclo pode ser quebrado, uma clareza repentina toma conta de você: é hora de acordar desse pesadelo, <b>você precisa fugir.</b>'
-        botoes.innerHTML = '<button onclick="cenaIntro8()">Continuar</button><button class="btn-voltar" onclick="cenaIntro6()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaIntro8()">Continuar</button>'
     }
 
     function cenaIntro8() {
@@ -130,8 +130,7 @@
         botoes.innerHTML =
             '<button onclick="guardaA(); salvar(1, \'A\', \'Cauteloso\', sessionStorage.getItem(\'ID_USUARIO\'))">A) Esconder a carta</button>' +
             '<button onclick="guardaB(); salvar(1, \'B\', \'Determinado\', sessionStorage.getItem(\'ID_USUARIO\'))">B) Se impor ao guarda</button>' +
-            '<button onclick="guardaC(); salvar(1, \'C\', \'Estrategista\', sessionStorage.getItem(\'ID_USUARIO\'))">C) Destruir a carta</button>' +
-            '<button class="btn-voltar" onclick="cenaIntro7()">Voltar</button>'
+            '<button onclick="guardaC(); salvar(1, \'C\', \'Estrategista\', sessionStorage.getItem(\'ID_USUARIO\'))">C) Destruir a carta</button>'
     }
 
     function guardaA() {
@@ -139,7 +138,7 @@
         imagemFundo.src = '../assets/guarda.png'
         nome.innerHTML = 'GUARDA'
         texto.innerHTML = '"O sacrifício da sua felicidade é a única rota para você sair daqui, continue assim..." ele dá um sorriso de desprezo e tranca a porta novamente.'
-        botoes.innerHTML = '<button onclick="cenaTijolo()">Continuar</button><button class="btn-voltar" onclick="cenaIntro8()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaTijolo()">Continuar</button>'
     }
 
     function guardaB() {
@@ -147,7 +146,7 @@
         imagemFundo.src = '../assets/guarda.png'
         nome.innerHTML = 'GUARDA'
         texto.innerHTML = '"Quem você pensa que é? Para de dar trabalho!" ele te empurra com força contra a parede, realiza uma revista e sai, trancando a porta.'
-        botoes.innerHTML = '<button onclick="cenaTijolo()">Continuar</button><button class="btn-voltar" onclick="cenaIntro8()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaTijolo()">Continuar</button>'
     }
 
     function guardaC() {
@@ -155,28 +154,28 @@
         imagemFundo.src = '../assets/Quarto.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'A luz da lanterna passa pela fresta, o guarda te vê sentado, de mãos vazias e em silêncio, satisfeito, ele continua a patrulha pelo corredor.'
-        botoes.innerHTML = '<button onclick="cenaTijolo()">Continuar</button><button class="btn-voltar" onclick="cenaIntro8()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaTijolo()">Continuar</button>'
     }
 
     function cenaTijolo() {
         imagemFundo.src = '../assets/tijolo.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Com o corredor novamente em silêncio, você examina a cela com um novo olhar, perto do ralo escuro, um tijolo marcado com uma tinta amarela cede ao seu toque.'
-        botoes.innerHTML = '<button onclick="cenaChave()">Continuar</button><button class="btn-voltar" onclick="cenaIntro8()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaChave()">Continuar</button>'
     }
 
     function cenaChave() {
         imagemFundo.src = '../assets/itens.png'
         nome.innerHTML = 'VOCÊ'
         texto.innerHTML = '"Uma bússola e uma cópia da chave mestra..." a oportunidade de quebrar o ciclo finalmente está nas suas mãos.'
-        botoes.innerHTML = '<button onclick="cenaChave2()">Continuar</button><button class="btn-voltar" onclick="cenaTijolo()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaChave2()">Continuar</button>'
     }
 
     function cenaChave2() {
         imagemFundo.src = '../assets/porta.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = ' Você vai até a porta sem perder mais tempo e deposita a chave, a fechadura gira com um clique abafado, você empurra a porta de metal e dá o primeiro passo para fora da sua prisão.'
-        botoes.innerHTML = '<button onclick="cenaTorre()">Continuar</button><button class="btn-voltar" onclick="cenaChave()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaTorre()">Continuar</button>'
     }
 
     function cenaTorre() {
@@ -186,8 +185,7 @@
         botoes.innerHTML =
             '<button onclick="torreA(); salvar(2, \'A\', \'Cauteloso\', sessionStorage.getItem(\'ID_USUARIO\'))">A) Se esconder</button>' +
             '<button onclick="torreB(); salvar(2, \'B\', \'Determinado\', sessionStorage.getItem(\'ID_USUARIO\'))">B) Descer as escadas</button>' +
-            '<button onclick="torreC(); salvar(2, \'C\', \'Estrategista\', sessionStorage.getItem(\'ID_USUARIO\'))">C) Armar uma emboscada</button>' +
-            '<button class="btn-voltar" onclick="cenaChave2()">Voltar</button>'
+            '<button onclick="torreC(); salvar(2, \'C\', \'Estrategista\', sessionStorage.getItem(\'ID_USUARIO\'))">C) Armar uma emboscada</button>'
     }
 
     function torreA() {
@@ -195,7 +193,7 @@
         imagemFundo.src = '../assets/escada1.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você procura uma saída, um esconderijo, mas o único lugar que você poderia pasar despercebido é atrás de uma pilastra, a lanterna dele passa a centímetros do seu pé, você poderia ter enfrentado e não se escondido do problema, mas consegue descer a torre sem ser visto.'
-        botoes.innerHTML = '<button onclick="cenaPatio()">Continuar</button><button class="btn-voltar" onclick="cenaTorre()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaPatio()">Continuar</button>'
     }
 
     function torreB() {
@@ -203,7 +201,7 @@
         imagemFundo.src = '../assets/escada1.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você desce a escada de metal, sem se importar com descrição, você já se cansou disso, você não aguenta mais, e precisa fugir o mais rápido possível. Você desce para o térreo, saindo do complexo prisional.'
-        botoes.innerHTML = '<button onclick="cenaPatio()">Continuar</button><button class="btn-voltar" onclick="cenaTorre()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaPatio()">Continuar</button>'
     }
 
     function torreC() {
@@ -211,21 +209,21 @@
         imagemFundo.src = '../assets/escada1.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você se esconde atrás de uma pilastra com bastante paciência, espera o guarda passar e quando ele passa, você o empurra e ele cai atordoado, a esse ponto você não se importa mais com as consequências, você só quer se ver livre daquele lugar, você foge até o térreo.'
-        botoes.innerHTML = '<button onclick="cenaPatio()">Continuar</button><button class="btn-voltar" onclick="cenaTorre()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaPatio()">Continuar</button>'
     }
 
     function cenaPatio() {
         imagemFundo.src = '../assets/patio.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você empurra a porta e sai no pátio dos Falsos Ídolos, você se esconde em um beco próximo ao centro do pátio que continha uma estátua em posição de Seizing, você se lembra disso das aulas doutrinárias do  Vialismo, é uma técnica que permite que após uma pessoa falecer, os bispos tenham como controlar seus corpos usando um NED, um dispositivo de expansão neural, chifres presentes na cabeça de uma criatura também nomeada como NED, que após o crescimento total de suas galhadas, os bispos podem utilizar para seus feitos questionáveis...'
-        botoes.innerHTML = '<button onclick="cenaPatio2()">Continuar</button><button class="btn-voltar" onclick="cenaTorre()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaPatio2()">Continuar</button>'
     }
 
     function cenaPatio2() {
         imagemFundo.src = '../assets/patio.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Agora recém foragido da prisão, você precisa encontrar o amarelo, a ajuda que os Banditos te prometeram, eles deixaram claro que estariam te ajudando o tempo todo, mas que a real fuga seria apenas por sua conta.'
-        botoes.innerHTML = '<button onclick="cenaPatio3()">Continuar</button><button class="btn-voltar" onclick="cenaPatio()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaPatio3()">Continuar</button>'
     }
 
     function cenaPatio3() {
@@ -235,8 +233,7 @@
         botoes.innerHTML =
             '<button onclick="patioA(); salvar(3, \'A\', \'Cauteloso\', sessionStorage.getItem(\'ID_USUARIO\'))">A) Pegar o caminho mais seguro até a coordenada.</button>' +
             '<button onclick="patioB(); salvar(3, \'B\', \'Determinado\', sessionStorage.getItem(\'ID_USUARIO\'))">B) Pegar o caminho mais rápido até o norte.</button>' +
-            '<button onclick="patioC(); salvar(3, \'C\', \'Estrategista\', sessionStorage.getItem(\'ID_USUARIO\'))">C) Pegar o caminho por dentro dos prédios vazios da cidade.</button>' +
-            '<button class="btn-voltar" onclick="cenaPatio2()">Voltar</button>'
+            '<button onclick="patioC(); salvar(3, \'C\', \'Estrategista\', sessionStorage.getItem(\'ID_USUARIO\'))">C) Pegar o caminho por dentro dos prédios vazios da cidade.</button>'
     }
 
     function patioA() {
@@ -244,7 +241,7 @@
         imagemFundo.src = '../assets/patio.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você contorna totalmente a cidade, procurando um caminho onde os olhos dos bispos não estariam em você, mas percebe que isso toma muito o seu tempo, você sente que teria sido melhor ter ido sido mais assertivo em seu caminho, mas seu medo te fez tomar a decisão que lhe parecia mais correta... Você chega ao norte.'
-        botoes.innerHTML = '<button onclick="cenaPredio()">Continuar</button><button class="btn-voltar" onclick="cenaPatio3()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaPredio()">Continuar</button>'
     }
 
     function patioB() {
@@ -252,7 +249,7 @@
         imagemFundo.src = '../assets/patio.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você ignora o fato de estarem te procurando, e que possivelmente te encontrariam na sua fuga, porém você não se importa, segue sua bússola meticulosamente, até o norte.'
-        botoes.innerHTML = '<button onclick="cenaPredio()">Continuar</button><button class="btn-voltar" onclick="cenaPatio3()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaPredio()">Continuar</button>'
     }
 
     function patioC() {
@@ -260,49 +257,49 @@
         imagemFundo.src = '../assets/patio.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você planeja um caminho para fugir com cautela, sem ser visto, por dentro dos prédios vazios do centro de Dema você, passo por passo, construiu sua fuga até o norte'
-        botoes.innerHTML = '<button onclick="cenaPredio()">Continuar</button><button class="btn-voltar" onclick="cenaPatio3()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaPredio()">Continuar</button>'
     }
 
     function cenaPredio() {
         imagemFundo.src = '../assets/predio.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você encontra um prédio em ruínas, que se diferenciava de todos que você tinha passado em seu caminho escolhido, ele continha uma fita amarela cruzada em x, a cor que os bispos não enxergam. '
-        botoes.innerHTML = '<button onclick="cenaInteriorPredio()">Continuar</button><button class="btn-voltar" onclick="cenaPatio3()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaInteriorPredio()">Continuar</button>'
     }
 
     function cenaInteriorPredio() {
         imagemFundo.src = '../assets/interiorPredio.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você entra no prédio, um lugar totalmente esquecido pela cidade, com móveis velhos que se deterioraram com o tempo, parecia a casa de alguém, porém de antes do vialismo se instalar em Dema, pois ali parecia ter algo que os complexos residenciais que os habitantes vivem não possuíam, felicidade, cor.'
-        botoes.innerHTML = '<button onclick="cenaItem()">Continuar</button><button class="btn-voltar" onclick="cenaPredio()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaItem()">Continuar</button>'
     }
 
     function cenaItem() {
         imagemFundo.src = '../assets/interiorPredio.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você decide inspecionar aquele prédio antes de descer pela escotilha, você não sabe o que pode ter que enfrentar, você começa procurando pela cômoda.'
-        botoes.innerHTML = '<button onclick="cenaItemA()">Continuar</button><button class="btn-voltar" onclick="cenaInteriorPredio()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaItemA()">Continuar</button>'
     }
 
     function cenaItemA() {
         imagemFundo.src = '../assets/interiorPredio.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Ao forçar a última gaveta emperrada da cômoda, você encontra um arquivo empoeirado, o emblema de Dema estampa a capa.'
-        botoes.innerHTML = '<button onclick="cenaItemA2()">Continuar</button><button class="btn-voltar" onclick="cenaItem()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaItemA2()">Continuar</button>'
     }
 
     function cenaItemA2() {
         imagemFundo.src = '../assets/itemAFechado.png'
         nome.style.display = "none"
         texto.style.display = "none"
-        botoes.innerHTML = '<button onclick="cenaItemA3()">Continuar</button><button class="btn-voltar" onclick="cenaItemA()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaItemA3()">Continuar</button>'
     }
 
     function cenaItemA3() {
         imagemFundo.src = '../assets/itemAAberto.png'
         nome.style.display = "none"
         texto.style.display = "none"
-        botoes.innerHTML = '<button onclick="cenaItemA4()">Continuar</button><button class="btn-voltar" onclick="cenaItemA2()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaItemA4()">Continuar</button>'
     }
 
     function cenaItemA4() {
@@ -311,21 +308,21 @@
         texto.removeAttribute("style")
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Seu coração gela ao abrir e ler seu próprio nome no topo, o documento lista sua idade de entrada como 4 anos, no campo Parentalidade, os nomes originais foram violentamente riscados com tinta preta, toda a sua vida em Dema foi uma mentira construída.'
-        botoes.innerHTML = '<button onclick="cenaItemB()">Procurar debaixo da cama</button><button class="btn-voltar" onclick="cenaItemA3()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaItemB()">Procurar debaixo da cama</button>'
     }
 
     function cenaItemB() {
         imagemFundo.src = '../assets/NED.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você se ajoelha e tateia a escuridão espessa debaixo da cama deteriorada, seus dedos tocam algo áspero, pesado, ao puxar o objeto para a pouca luz que entra no prédio, você prende a respiração: é um par de galhadas brancas e pontiagudas, as galhas de um NED, elas parecem pulsar com um calor fraco e reconfortante nas suas mãos, é uma relíquia sagrada para os banditos, uma prova física, rara e inegável, de que o poder de criação e a verdadeira vida existem muito além do controle de Nico.'
-        botoes.innerHTML = '<button onclick="cenaItemC()">Procurar nas paredes</button><button class="btn-voltar" onclick="cenaItemA4()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaItemC()">Procurar nas paredes</button>'
     }
 
     function cenaItemC() {
         imagemFundo.src = '../assets/interiorPredio.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você examina as paredes descascadas do quarto, batendo levemente na estrutura até escutar um som oco atrás de um painel de madeira apodrecido, quebrando a placa, você retira de dentro da parede um pergaminho enrolado, é um mapa desenhado à mão por antigos moradores, ele detalha todo o além Dema e Trench, destaca uma ilha chamada "Voldsoy", se as coisas ficarem difíceis, você pode fugir para lá.'
-        botoes.innerHTML = '<button onclick="cenaItemC2()">Continuar</button><button class="btn-voltar" onclick="cenaItemB()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaItemC2()">Continuar</button>'
     }
 
 
@@ -333,47 +330,47 @@
         imagemFundo.src = '../assets/voldsoy.png'
         nome.style.display = "none"
         texto.style.display = "none"
-        botoes.innerHTML = '<button onclick="cenaEscotilha()">Descer pela escotilha</button><button class="btn-voltar" onclick="cenaItemC()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaEscotilha()">Descer pela escotilha</button>'
     }
-    
+
     function cenaEscotilha() {
         imagemFundo.src = '../assets/escada2.png'
-        
+
         nome.removeAttribute("style")
         texto.removeAttribute("style")
         botoes.removeAttribute("style")
-        
+
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Com os itens guardados, você desce pela escotilha escura, sentindo o ar ficar cada vez mais úmido à medida que você se aprofunda no subsolo de Dema em busca da saída.'
-        botoes.innerHTML = '<button onclick="cenaTrincheira()">Continuar</button><button class="btn-voltar" onclick="cenaItemC2()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaTrincheira()">Continuar</button>'
     }
 
     function cenaTrincheira() {
         imagemFundo.src = '../assets/keons.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'O ar das trincheiras se torna insuportavelmente denso, pesando sobre seus ombros como uma tristeza letárgica da qual você não consegue despertar, cada passo exige uma força monumental, a neblina recua, revelando um manto vermelho imóvel no chão, é um bispo, o que ele estava fazendo ali?'
-        botoes.innerHTML = '<button onclick="cenaNicoAparece()">Continuar</button><button class="btn-voltar" onclick="cenaEscotilha()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaNicoAparece()">Continuar</button>'
     }
 
     function cenaNicoAparece() {
         imagemFundo.src = '../assets/nico.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Uma figura imponente aparece bloqueando a única saída, é Nico, você o conhecia bem, a presença dele desencadeia um frio súbito no seu estômago, um aperto no peito e a falta de ar sufocante de um ataque de pânico, o silêncio dele já é ensurdecedor.'
-        botoes.innerHTML = '<button onclick="cenaDialogoNico1()">Continuar</button><button class="btn-voltar" onclick="cenaTrincheira()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaDialogoNico1()">Continuar</button>'
     }
 
     function cenaDialogoNico1() {
         imagemFundo.src = '../assets/nico.png'
         nome.innerHTML = 'NICO'
         texto.innerHTML = '"A esperança é uma doença exaustiva, não é? Olhe para Keons, ele se rebelou contra nós, Bispos, aceitando ser espião para os Banditos para te ajudar a escapar, fez você acreditar que havia um propósito além desta dor," a voz de Nico raspa diretamente dentro da sua mente, perfeitamente sintonizada com suas piores inseguranças. "Eu fui quem escreveu seu arquivo, eu sei o quão quebrado você está por dentro, toda essa sua rebelião é apenas uma máscara para o fato de que você é um fracasso"'
-        botoes.innerHTML = '<button onclick="cenaDialogoNico2()">Continuar</button><button class="btn-voltar" onclick="cenaNicoAparece()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaDialogoNico2()">Continuar</button>'
     }
 
     function cenaDialogoNico2() {
         imagemFundo.src = '../assets/nico.png'
         nome.innerHTML = 'NICO'
         texto.innerHTML = '"Dema perdeu um pilar, mas o vazio sempre implora para ser preenchido, você tem a fraqueza exata que eu preciso, pare de lutar contra a maré, volte para o cinza, deixe-me anestesiar essa ansiedade que corrói seu peito, entregue-se, e eu prometo que você nunca mais terá que sentir nada."'
-        botoes.innerHTML = '<button onclick="cenaDecisaoFinal()">Continuar</button><button class="btn-voltar" onclick="cenaDialogoNico1()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="cenaDecisaoFinal()">Continuar</button>'
     }
 
     function cenaDecisaoFinal() {
@@ -381,25 +378,24 @@
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'A vontade de chorar trava sua garganta, sua insegurança tenta te convencer de que ele tem razão, que o cansaço é grande demais para continuar lutando. <b>O que você faz para resolver essa situação de uma vez por todas?</b>'
         botoes.innerHTML =
-                '<button onclick="finalRuimInicio(); salvar(4, \'A\', \'Cauteloso\', sessionStorage.getItem(\'ID_USUARIO\'))">A) Entregar-se à apatia de Dema.</button>' +
-                '<button onclick="finalBomInicio(); salvar(4, \'B\', \'Estrategista\', sessionStorage.getItem(\'ID_USUARIO\'))">B) Fugir às cegas pelo túnel.</button>' +
-                '<button onclick="finalVerdadeiroInicio(); salvar(4, \'C\', \'Determinado\', sessionStorage.getItem(\'ID_USUARIO\'))">C) Enfrentar.</button>' +
-                '<button class="btn-voltar" onclick="cenaDialogoNico2()">Voltar</button>'
-        }
+            '<button onclick="finalRuimInicio(); salvar(4, \'A\', \'Cauteloso\', sessionStorage.getItem(\'ID_USUARIO\'))">A) Entregar-se à apatia de Dema.</button>' +
+            '<button onclick="finalBomInicio(); salvar(4, \'B\', \'Estrategista\', sessionStorage.getItem(\'ID_USUARIO\'))">B) Fugir às cegas pelo túnel.</button>' +
+            '<button onclick="finalVerdadeiroInicio(); salvar(4, \'C\', \'Determinado\', sessionStorage.getItem(\'ID_USUARIO\'))">C) Enfrentar.</button>'
+    }
 
     function finalRuimInicio() {
         etapaEscolha = 5;
         imagemFundo.src = '../assets/nico.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você solta um suspiro trêmulo e abaixa os braços, a resistência desmorona, as lágrimas de frustração secam, substituídas por uma dormência assustadora, você aceita as palavras venenosas de Nico como a sua única verdade, suas pernas cedem, e você cai de joelhos ao lado do corpo de Keons, permitindo que a frieza do chão absorva a última gota de cor e calor do seu corpo.'
-        botoes.innerHTML = '<button onclick="finalRuimConclusao()">Continuar</button><button class="btn-voltar" onclick="cenaDecisaoFinal()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="finalRuimConclusao()">Continuar</button>'
     }
 
     function finalRuimConclusao() {
         imagemFundo.src = '../assets/final1.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você acorda em uma sala gélida, no há dor, nem ansiedade, apenas um vazio permanente, ao caminhar até a janela espelhada no topo da torre, o reflexo devolve um olhar morto, um manto vermelho pesado cobre seus ombros. <b>Você se tornou aquilo que mais temia.</b>'
-        botoes.innerHTML = '<button onclick="fimBispo()">Continuar</button><button class="btn-voltar" onclick="finalRuimInicio()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="fimBispo()">Continuar</button>'
     }
 
     function finalVerdadeiroInicio() {
@@ -407,42 +403,42 @@
         imagemFundo.src = '../assets/nico.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Apesar da exaustão paralisante, você recusa o posto da vitimização, suas mãos apertam as galhas brancas de NED, que representam a criatividade, a terapia, as pequenas coisas que te mantêm vivo, um calor familiar e acolhedor pulsa delas, combatendo o frio de Nico, você canaliza toda a sua vontade de viver para as galhas.'
-        botoes.innerHTML = '<button onclick="finalVerdadeiroBatalha()">Continuar</button><button class="btn-voltar" onclick="cenaDecisaoFinal()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="finalVerdadeiroBatalha()">Continuar</button>'
     }
 
     function finalVerdadeiroBatalha() {
         imagemFundo.src = '../assets/nicoKeons2.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Sua consciência se expande, os olhos sem vida de Keons explodem em um amarelo ofuscante, você toma o controle da sua própria salvação, o corpo do bispo se ergue do chão como uma força incontrolável da natureza, atacando Nico com o peso de uma mente que decidiu que merece curar, o domínio manipulador de Nico entra em colapso, estilhaçando-se como vidro frágil.'
-        botoes.innerHTML = '<button onclick="finalVerdadeiroFuga()">Continuar</button><button class="btn-voltar" onclick="finalVerdadeiroInicio()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="finalVerdadeiroFuga()">Continuar</button>'
     }
 
     function finalVerdadeiroFuga() {
         imagemFundo.src = '../assets/nicoKeons3.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Com Nico caído e as trincheiras finalmente silenciosas, você corre, o ar volta aos seus pulmões, as amarras invisíveis da ansiedade se romperam.'
-        botoes.innerHTML = '<button onclick="escadas()">Continuar</button><button class="btn-voltar" onclick="finalVerdadeiroBatalha()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="escadas()">Continuar</button>'
     }
 
     function escadas() {
         imagemFundo.src = '../assets/escada3.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você sobe para a superfície.'
-        botoes.innerHTML = '<button onclick="dialogoTorchbearerVerdadeiro1()">Continuar</button><button class="btn-voltar" onclick="finalVerdadeiroFuga()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="dialogoTorchbearerVerdadeiro1()">Continuar</button>'
     }
 
     function dialogoTorchbearerVerdadeiro1() {
         imagemFundo.src = '../assets/torchbearer.png'
         nome.innerHTML = 'TORCHBEARER'
         texto.innerHTML = '"Você enfrentou a raiz profunda do seu tormento," diz Torchbearer, abaixando a tocha, ele enxerga as cicatrizes invisíveis da sua batalha. "Derrotar o líder não apaga o passado nem garante que os dias ruins nunca voltarão, mas hoje, você provou a si mesmo que sua mente é a sua casa, e você dita as regras nela, o medo não tem mais a chave."'
-        botoes.innerHTML = '<button onclick="dialogoTorchbearerVerdadeiro2()">Continuar</button><button class="btn-voltar" onclick="escadas()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="dialogoTorchbearerVerdadeiro2()">Continuar</button>'
     }
 
     function dialogoTorchbearerVerdadeiro2() {
         imagemFundo.src = '../assets/torchbearer.png'
         nome.innerHTML = 'TORCHBEARER'
         texto.innerHTML = '"Com Nico incapacitado, a ilusão do Vialismo está quebrando, o céu de Dema está rachando" ele sorri, entregando-lhe uma jaqueta com fitas amarelas. "Nossa verdadeira jornada começa agora, nós vamos voltar lá para dentro, vamos estender a mão para aqueles que ainda acham que estão sozinhos no escuro e vamos libertar nossa casa."'
-        botoes.innerHTML = '<button onclick="fimEnfrentamento()">Final</button><button class="btn-voltar" onclick="dialogoTorchbearerVerdadeiro1()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="fimEnfrentamento()">Final</button>'
     }
 
     function finalBomInicio() {
@@ -450,29 +446,29 @@
         imagemFundo.src = '../assets/nico.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'O terror é paralisante, enfrentar aquele trauma de frente parece uma tarefa impossível, o coração bate tão forte que machuca, em um reflexo puro de autopreservação e ansiedade, você pressiona as mãos sobre os ouvidos, abafando as mentiras de Nico, você foca obsessivamente no mapa no seu bolso, a única opção é a fuga.'
-        botoes.innerHTML = '<button onclick="finalBomFuga()">Continuar</button><button class="btn-voltar" onclick="cenaDecisaoFinal()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="finalBomFuga()">Continuar</button>'
     }
 
     function finalBomFuga() {
         imagemFundo.src = '../assets/nico.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você desvia de Nico em um salto desesperado, a adrenalina faz você correr cegamente até a porta, o som da sua própria respiração ofegante é tudo o que existe, você está fisicamente escapando de Dema, mas a sensação de perigo não abandona sua nuca, as sombras continuam sussurrando logo atrás de você.'
-        botoes.innerHTML = '<button onclick="escadas2()">Continuar</button><button class="btn-voltar" onclick="finalBomInicio()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="escadas2()">Continuar</button>'
     }
 
-    
+
     function escadas2() {
         imagemFundo.src = '../assets/escada3.png'
         nome.innerHTML = 'NARRADOR'
         texto.innerHTML = 'Você sobe para a superfície.'
-        botoes.innerHTML = '<button onclick="dialogoTorchbearerBom1()">Continuar</button><button class="btn-voltar" onclick="finalBomFuga()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="dialogoTorchbearerBom1()">Continuar</button>'
     }
 
     function dialogoTorchbearerBom1() {
         imagemFundo.src = '../assets/torchbearer.png'
         nome.innerHTML = 'TORCHBEARER'
         texto.innerHTML = '"Você está tremendo... entendo. Às vezes, o instinto de sobrevivência grita para simplesmente evitarmos o confronto," ele murmura, com uma expressão dividida entre alívio e preocupação. "Foi uma estratégia para se manter vivo hoje, mas a ansiedade não curada vai voltar uma hora, fugir do problema não o destruiu, Nico continua lá, já que você escolheu evitar a tempestade agora, vamos para Voldsoy, e rezar para que o tempo te dê coragem para o acerto de contas inevitável."'
-        botoes.innerHTML = '<button onclick="fimFuga()">Final</button><button class="btn-voltar" onclick="escadas2()">Voltar</button>'
+        botoes.innerHTML = '<button onclick="fimFuga()">Final</button>'
     }
 
     function fimEnfrentamento() {
