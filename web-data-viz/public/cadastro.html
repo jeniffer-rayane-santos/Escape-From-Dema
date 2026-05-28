@@ -36,13 +36,13 @@
       <div class="campo">
         <h1>CONTRATO DE CIDADANIA DO <br> MUNICIPIO SAGRADO DE DEMA</h1>
 
-        <label>Insira seu código identificador (FPE-XXXX)</label>
+        <label>Insira seu código identificador: (FPE-XXXX)</label>
         <input type="text" id="ipt_codigo">
 
         <label>Insira seu E-mail:</label>
         <input type="text" id="ipt_email">
 
-        <label>Insira sua senha:</label>
+        <label>Insira sua senha: (8 caracteres*)</label>
         <input type="password" id="ipt_senha">
 
         <label>Insira novamente sua senha:</label>
@@ -51,7 +51,7 @@
         <label>Assinatura: (Seu primeiro nome)</label>
         <input class="assinatura" type="text" id="ipt_nome">
 
-        <button onclick="cadastrar()">Submeter</button>
+        <button onclick="cadastrar()">Submeter-se</button>
       </div>
     </div>
   </div>
@@ -107,7 +107,7 @@
 
               setTimeout(() => {
                 window.location = "login.html"
-              }, 2000)
+              }, 1000)
 
             } else {
               throw "Houve um erro ao tentar realizar o cadastro!"
