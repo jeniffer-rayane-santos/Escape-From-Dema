@@ -520,18 +520,14 @@
         })
             .then(function (resposta) {
                 if (resposta.ok) {
-                    return resposta.json()
+                    console.log("Resposta salva em Dema com sucesso!");
                 } else {
-                    throw "Erro ao salvar questão!"
+                    console.log("Erro ao salvar resposta.");
                 }
             })
-            .then(function (dados) {
-                console.log("Questão salva com sucesso:", dados)
-            })
             .catch(function (erro) {
-                console.log(erro)
-            })
-
+                console.log(erro);
+            });
     }
 
     function aoClicarPlay() {

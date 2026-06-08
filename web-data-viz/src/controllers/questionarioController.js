@@ -1,13 +1,15 @@
 var questionarioModel = require("../models/questionarioModel")
 
 function salvarQuestao(req, res) {
-    let numPergunta = req.body.numeroPergunta
-    let letraQuestao = req.body.questao
-    let tipo = req.body.tipoPergunta
-    let usuario = req.body.idUsuario
+    let numPergunta = req.body.numeroPergunta;
+    let letraQuestao = req.body.questao;
+    let tipo = req.body.tipoPergunta;
+    let usuario = req.body.idUsuario;
 
     if (numPergunta == undefined) {
-        res.status(400).send("Seu numero da pergunta está vazio!")
+        res.status(400).send("Seu numero da pergunta está vazio!");
+    } else if (usuario == undefined || usuario == null) {
+        res.status(400).send("A fk_usuario está vazia ou nula!");
     } else {
         questionarioModel.salvarQuestao(numPergunta, letraQuestao, tipo, usuario)
             .then(function (resultado) {
@@ -22,9 +24,9 @@ function salvarQuestao(req, res) {
                 });
             })
             .catch(function (erro) {
-                console.log(erro)
-                res.status(500).json(erro.sqlMessage)
-            })
+                console.log(erro);
+                res.status(500).json(erro.sqlMessage);
+            });
     }
 }
 
